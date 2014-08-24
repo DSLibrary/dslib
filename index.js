@@ -1,4 +1,9 @@
 'use strict';
-var dataStructures = {};
+var Stack = require('./dataStructures/stack.js');
 
-module.exports = dataStructures;
+//library object that contains all data structures
+var dslib = {};
+dslib.Stack = Stack;
+
+
+module.exports = dslib;
