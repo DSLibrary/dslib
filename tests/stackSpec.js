@@ -6,21 +6,22 @@ var should = require('chai').should();
 
 
 describe('Stack', function(){
+  var exStack = new Stack();
 
   it('should be a function', function(){
-    typeof(Stack).should.equal('function');
+    (typeof(Stack)).should.equal('function');
   });
 
   it('should have a pop method', function(){
-    typeof(Stack.pop).should.equal('function');
+    (typeof(exStack.pop)).should.equal('function');
   });
 
   it('should have a push method', function(){
-    typeof(Stack.push).should.equal('function');
+    (typeof(exStack.push)).should.equal('function');
   });
 
   it('should have a push method', function(){
-    typeof(Stack.push).should.equal('function');
+    (typeof(exStack.push)).should.equal('function');
   });
 
 });
