@@ -8,7 +8,9 @@ gulp.task('mocha', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('index.js' || 'dataStructures/*.js' || 'tests/*.js', ['mocha']);
+  gulp.watch('./dataStructures/**', ['mocha']);
+  gulp.watch('./tests/**', ['mocha']);
+
 });
 
-gulp.task('default', ['mocha']);
+gulp.task('default', ['watch']);

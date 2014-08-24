@@ -20,7 +20,6 @@ describe('Queue', function(){
 
   it('should have a dequeue method', function(){
     (typeof exQueue.dequeue).should.equal('function');
-    console.log(exQueue);
     (exQueue.dequeue()).should.equal(1);
   });
 
