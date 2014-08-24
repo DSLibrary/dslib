@@ -1,4 +1,4 @@
 dslib
 ==============
 
-A library of useful Javascript data structures
+A library of useful data structures in Javascript
