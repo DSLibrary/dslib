@@ -1,0 +1,74 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.28
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add spec="." args=[".",null]
+8 verbose cache add local package /Users/kiafathi/Documents/Code/dataStructures
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/kiafathi/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz', '.' ]
+12 verbose tarball /Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz
+13 verbose folder .
+14 info prepublish dataStructures@0.0.0
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/kiafathi/.npm/1f1177db-tar.lock
+17 silly lockFile 48c20897-dataStructures-0-0-0-package-tgz tar:///Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz
+18 verbose lock tar:///Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz /Users/kiafathi/.npm/48c20897-dataStructures-0-0-0-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 48c20897-dataStructures-0-0-0-package-tgz tar:///Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz
+22 silly lockFile 48c20897-dataStructures-0-0-0-package-tgz tar:///Users/kiafathi/.npm/dataStructures/0.0.0/package.tgz
+23 silly lockFile d960f5b9-npm-dataStructures-0-0-0-package /Users/kiafathi/.npm/dataStructures/0.0.0/package
+24 verbose lock /Users/kiafathi/.npm/dataStructures/0.0.0/package /Users/kiafathi/.npm/d960f5b9-npm-dataStructures-0-0-0-package.lock
+25 silly lockFile d960f5b9-npm-dataStructures-0-0-0-package /Users/kiafathi/.npm/dataStructures/0.0.0/package
+26 silly lockFile d960f5b9-npm-dataStructures-0-0-0-package /Users/kiafathi/.npm/dataStructures/0.0.0/package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'dataStructures',
+29 silly publish   version: '0.0.0',
+29 silly publish   description: 'A library of useful data structures in Javascript',
+29 silly publish   main: 'index.js',
+29 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+29 silly publish   repository:
+29 silly publish    { type: 'git',
+29 silly publish      url: 'https://github.com/KiaFathi/dataStructures.git' },
+29 silly publish   author:
+29 silly publish    { name: 'Kia Fathi',
+29 silly publish      email: 'kiafathi@me.com',
+29 silly publish      url: 'http://kiafathi.com/' },
+29 silly publish   license: 'ISC',
+29 silly publish   bugs: { url: 'https://github.com/KiaFathi/dataStructures/issues' },
+29 silly publish   homepage: 'https://github.com/KiaFathi/dataStructures',
+29 silly publish   devDependencies: { chai: '^1.9.1', mocha: '^1.21.4' },
+29 silly publish   readme: 'dataStructures\n==============\n\nA library of useful Javascript data structures\n',
+29 silly publish   readmeFilename: 'README.md',
+29 silly publish   gitHead: 'd6d67b8b15283b858cabf5b71d1e294d9afd069a',
+29 silly publish   _id: 'dataStructures@0.0.0',
+29 silly publish   _shasum: '42e237ab331912821474ba1a2cd843e2b3aa6a6a',
+29 silly publish   _from: '.' }
+30 verbose mapToRegistry name dataStructures
+31 verbose mapToRegistry uri https://registry.npmjs.org/dataStructures
+32 verbose publish registryBase https://registry.npmjs.org/
+33 error Error: Invalid name: "dataStructures"
+33 error     at ensureValidName (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:315:15)
+33 error     at module.exports.fixNameField (/usr/local/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:204:5)
+33 error     at RegClient.publish (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:23:5)
+33 error     at /usr/local/lib/node_modules/npm/lib/publish.js:113:14
+33 error     at mapToRegistry (/usr/local/lib/node_modules/npm/lib/utils/map-to-registry.js:53:3)
+33 error     at publish_ (/usr/local/lib/node_modules/npm/lib/publish.js:101:3)
+33 error     at Array.1 (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+33 error     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+33 error     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+33 error     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+34 error If you need help, you may report this *entire* log,
+34 error including the npm and node versions, at:
+34 error     <http://github.com/npm/npm/issues>
+35 error System Darwin 14.0.0
+36 error command "node" "/usr/local/bin/npm" "publish"
+37 error cwd /Users/kiafathi/Documents/Code/dataStructures
+38 error node -v v0.10.28
+39 error npm -v 2.0.0-alpha-5
+40 verbose exit [ 1, true ]
