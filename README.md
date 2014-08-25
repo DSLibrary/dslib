@@ -71,8 +71,13 @@ gulp watch
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
-Add unit tests for any new or changed functionality. Lint and test your code.
+
+To Contribute:
+– Fork the repo
+– Add unit tests for any new or changed functionality. Write tests in the 
+appropriate spec file in the tests directory
+– Submit a pull request to master branch
 
 ## Release History
 
-* 0.1.0 Initial release
+* 0.2.0 Initial release
