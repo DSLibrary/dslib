@@ -1,7 +1,7 @@
 dslib
 ==============
 
-[![Circle CI](https://circleci.com/gh/KiaFathi/dslib.png?style=badge)](https://circleci.com/gh/KiaFathi/dslib)
+![alt tag](https://circleci.com/gh/KiaFathi/dslib/tree/master.png?style=shield)
 
 A library of useful data structures in Javascript
 
