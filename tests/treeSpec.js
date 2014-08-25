@@ -1,6 +1,6 @@
 'use strict';
 
-var Tree = require('../dataStructures/tree.js');
+var Tree = require('../index.js').Tree;
 var should = require('chai').should();
 
 

@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var Set = require('../dataStructures/set.js');
+var Set = require('../index.js').Set;
 var should = require('chai').should();
 
 

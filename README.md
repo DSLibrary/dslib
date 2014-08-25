@@ -60,6 +60,17 @@ var tree = new dslib.Tree();
 tree.addChild(value); //adds a child to tree with set value
 tree.contains(value); //returns a boolean if node with value in tree;
 ```
+
+###BinarySearchTree
+```
+var binarySearchTree = new dslib.BinarySearchTree();
+
+//methods
+binarySearchTree.insert(value) //inserts a node with the specific value
+binarySearchTree.contains(value) //returns a boolean if the value is in the tree
+binarySearchTree.depthFirstLog(callback) //executes callback on each node in tree, depth first order
+```
+
 ## Tests
 
 ```
@@ -73,15 +84,18 @@ gulp watch
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 To Contribute via Issue Notice:
-– Write up a description of the problem
-– I will write a fix correspondingly
+* Write up a description of the problem
+* I will write a fix correspondingly
 
 To Contribute via Pull Request:
-– Fork the repo
-– Add unit tests for any new or changed functionality. Write tests in the 
+* Fork the repo
+
+* Add unit tests for any new or changed functionality. Write tests in the 
 appropriate spec file in the tests directory
-– Submit a pull request to master branch
+
+* Submit a pull request to master branch
 
 ## Release History
 
-* 0.2.0 Initial release
+* 0.1.0 Initial release
+* 0.2.0 Tree, Stack, Queue, Set, LinkedList

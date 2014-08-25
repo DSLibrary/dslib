@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var Stack = require('../dataStructures/stack.js');
+var Stack = require('../index.js').Stack;
 var should = require('chai').should();
 
 

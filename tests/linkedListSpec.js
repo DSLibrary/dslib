@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var LinkedList = require('../dataStructures/linkedList.js');
+var LinkedList = require('../index.js').LinkedList;
 var should = require('chai').should();
 
 

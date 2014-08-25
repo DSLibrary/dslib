@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var Queue = require('../dataStructures/queue.js');
+var Queue = require('../index.js').Queue;
 var should = require('chai').should();
 
 
