@@ -58,7 +58,7 @@ var tree = new dslib.Tree();
 
 //methods
 tree.addChild(value); //adds a child to tree with set value
-tree.contains(value); //returns a boolean if item in tree;
+tree.contains(value); //returns a boolean if node with value in tree;
 ```
 ## Tests
 
