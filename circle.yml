@@ -1,0 +1,13 @@
+machine:
+
+checkout:
+
+dependencies:
+  pre:
+    -npm install -g gulp
+
+database:
+
+test:
+
+deployment: 
