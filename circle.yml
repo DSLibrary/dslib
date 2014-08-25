@@ -1,5 +1,5 @@
 dependencies:
-  overide:
+  override:
     - npm install -g gulp
     - npm install --dev
     - npm install
