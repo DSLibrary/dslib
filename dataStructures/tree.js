@@ -13,13 +13,19 @@ Tree.prototype.addChild = function(value){
 };
 
 Tree.prototype.contains = function(value){
-  if(this.value === value){
-    return true;
-  } else {
-    for(var i = 0; i < this.children.length; i++){
-      Tree.prototype.contains.call(this.children[i], value);
+  var found = false;
+  var subroutine = function(node){
+    if(node.value === value){
+      found = true;
+    } 
+    else {
+      for(var i = 0; i < node.children.length; i++){
+        subroutine(node.children[i]);
+      }
     }
-  }
+  };
+  subroutine(this);
+  return found;
 };
 
 module.exports = Tree;
