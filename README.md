@@ -71,6 +71,20 @@ binarySearchTree.contains(value) //returns a boolean if the value is in the tree
 binarySearchTree.depthFirstLog(callback) //executes callback on each node in tree, depth first order
 ```
 
+###Graph
+```
+
+var graph = new dslib.Graph();
+
+//methods
+graph.addNode(value) //adds a new node to the graph with a specific value
+graph.contains(value) //returns a boolean whether graph contains value
+graph.removeNode(value) //removes a specific node from the graph
+graph.addEdge(node1,node2) //creates a connection between 2 existing nodes
+graph.getEdge(node1, node2) //creates an edge between 2 existing nodes
+graph.removeEdge(node1, node2) //removes the connection between 2 existing nodes
+```
+
 ## Tests
 
 ```
@@ -100,3 +114,4 @@ appropriate spec file in the tests directory
 * 0.1.0 Initial release
 * 0.2.0 Tree, Stack, Queue, Set, LinkedList
 * 0.3.0 BinarySearchTree
+* 0.4.0 Graph

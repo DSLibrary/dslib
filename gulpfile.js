@@ -10,7 +10,6 @@ gulp.task('mocha', function(){
 gulp.task('watch', function(){
   gulp.watch('./dataStructures/**', ['mocha']);
   gulp.watch('./tests/**', ['mocha']);
-
 });
 
 gulp.task('default', ['watch']);
