@@ -99,3 +99,4 @@ appropriate spec file in the tests directory
 
 * 0.1.0 Initial release
 * 0.2.0 Tree, Stack, Queue, Set, LinkedList
+* 0.3.0 BinarySearchTree
