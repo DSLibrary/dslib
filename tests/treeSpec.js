@@ -20,14 +20,17 @@ describe('Tree', function(){
   it('should have an addChild method', function(){
     (typeof exTree.addChild).should.equal('function');
   });
-  exTree.addChild(2);
+  var branch2 = new Tree(2);
+  exTree.addChild(branch2);
   exTree.addChild(3);
+  branch2.addChild(5);
 
   it('should have an contains method', function(){
     (typeof exTree.contains).should.equal('function');
     (exTree.contains(1)).should.equal(true);
     (exTree.contains(2)).should.equal(true);
     (exTree.contains(3)).should.equal(true);
+    (exTree.contains(5)).should.equal(true);
     (exTree.contains(4)).should.equal(false);
   });
 

@@ -8,7 +8,13 @@ var Tree = function(value){
 };
 
 Tree.prototype.addChild = function(value){
-  var child = new Tree(value);
+  var child;
+  if(typeof value === 'number'){
+    child = new Tree(value);    
+  }
+  else if(typeof value === 'object'){
+    child = value;
+  }
   this.children.push(child);
 };
 

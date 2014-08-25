@@ -72,7 +72,11 @@ gulp watch
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
-To Contribute:
+To Contribute via Issue Notice:
+– Write up a description of the problem
+– I will write a fix correspondingly
+
+To Contribute via Pull Request:
 – Fork the repo
 – Add unit tests for any new or changed functionality. Write tests in the 
 appropriate spec file in the tests directory
