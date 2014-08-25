@@ -3,3 +3,7 @@ dependencies:
     - npm install -g gulp
     - npm install --dev
     - npm install
+
+test:
+  override:
+    - mocha tests/*.js
