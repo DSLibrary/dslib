@@ -37,5 +37,4 @@ Graph.prototype.removeEdge = function(node1, node2){
   this._edges[node2][node1] = false;
 };
 
-
 module.exports = Graph;
