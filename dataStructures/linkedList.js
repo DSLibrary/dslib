@@ -14,7 +14,6 @@ LinkedList.prototype._makeNode = function(value){
 };
 
 LinkedList.prototype.addToTail = function(value){
-  this._size++;
   var newNode = this._makeNode(value);
   if(this.head === null){
     this.head = newNode;
@@ -23,7 +22,7 @@ LinkedList.prototype.addToTail = function(value){
   } else {
     this.tail.next = newNode;
     this.tail = newNode;
-    this._size--;
+    this._size++;
   }
 };
 LinkedList.prototype.removeHead = function(){

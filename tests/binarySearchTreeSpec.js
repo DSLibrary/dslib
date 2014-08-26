@@ -11,7 +11,6 @@ describe('BinarySearchTree', function(){
     exBST.insert(6);
     exBST.insert(4);
     exBST.insert(3);
-
   });
   
   it('should be a function', function(){
