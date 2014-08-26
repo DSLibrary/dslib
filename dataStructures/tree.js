@@ -49,4 +49,14 @@ Tree.prototype.removeFromParent = function(){
   this.parent.removeChild(this.value);
 };
 
+Tree.prototype.traverse = function(callback){
+  var subroutine = function(node){
+    node.value = callback(node.value) || node.value;
+    for(var i = 0; i < node.children.length; i++){
+      subroutine(node.children[i]);
+    }
+  };
+  subroutine(this);
+};
+
 module.exports = Tree;

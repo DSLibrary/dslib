@@ -61,6 +61,7 @@ tree.addChild(value); //adds a child to tree with set value
 tree.contains(value); //returns a boolean if node with value in tree
 tree.removeChild(value); //removes a child from the tree with value
 tree.removeFromParent(); //removes a childnode from its parent
+tree.traverse(callback); //executes a callback on every value in tree
 
 ```
 

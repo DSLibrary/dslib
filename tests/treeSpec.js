@@ -63,5 +63,23 @@ describe('Tree', function(){
     branch2.removeFromParent();
     (!!branch2.parent).should.equal(false);
   });
+
+  it('should have a traverse method', function(){
+    (typeof exTree.traverse).should.equal('function');
+    exTree.addChild(1);
+    exTree.addChild(2);
+    exTree.traverse(function(value){
+      return value*2;
+    });
+    (exTree.contains(1)).should.equal(false);
+    (exTree.contains(4)).should.equal(true);
+    var testArray = [];
+    exTree.traverse(function(value){
+      testArray.push(value*2);
+    });
+    (testArray.length).should.equal(3);
+    (exTree.contains(2)).should.equal(true);
+    (exTree.contains(5)).should.equal(false);
+  });
   
 });
