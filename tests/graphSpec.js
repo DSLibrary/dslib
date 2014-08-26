@@ -47,7 +47,39 @@ describe('Graph', function(){
     (exGraph.getEdge(1,2)).should.equal(false);
   });
 
-  
+  it('should have a forEachNode method', function(){
+    (typeof exGraph.forEachNode).should.equal('function');
+    var mapGraph = new Graph();
+    mapGraph.addNode(1);
+    mapGraph.addNode(2);
+    mapGraph.addEdge(1,2);
+    mapGraph.forEachNode(function(value){
+      return value * 3;
+    });
+    (mapGraph.contains(2)).should.equal(false);
+    (mapGraph.contains(6)).should.equal(true);
+    (mapGraph.contains(3)).should.equal(true);
+    (mapGraph.getEdge(1,2)).should.equal(false);
+    (mapGraph.getEdge(3,6)).should.equal(true);
+  });
+
+  it('should remove nodes without any edges', function(){
+    var exGraph = new Graph();
+    exGraph.addNode(1);
+    exGraph.addNode(2);
+    (exGraph.getEdge(2,1)).should.equal(true);
+    exGraph.removeEdge(1,2);
+    (exGraph.contains(1)).should.equal(false);
+    (exGraph.contains(2)).should.equal(false);
+
+  });
+
+  it('should automatically create an edge between nodes if there was only one node', function(){
+    var exGraph = new Graph();
+    exGraph.addNode(1);
+    exGraph.addNode(2);
+    (exGraph.getEdge(1,2)).should.equal(true);
+  });
 
 
 });

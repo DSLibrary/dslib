@@ -77,12 +77,13 @@ binarySearchTree.depthFirstLog(callback) //executes callback on each node in tre
 var graph = new dslib.Graph();
 
 //methods
-graph.addNode(value) //adds a new node to the graph with a specific value
+graph.addNode(value) //adds a new node to the graph with a specific value, will add an edge if only item in graph
 graph.contains(value) //returns a boolean whether graph contains value
 graph.removeNode(value) //removes a specific node from the graph
 graph.addEdge(node1,node2) //creates a connection between 2 existing nodes
 graph.getEdge(node1, node2) //creates an edge between 2 existing nodes
 graph.removeEdge(node1, node2) //removes the connection between 2 existing nodes
+graph.forEachNode(callback) //applys a callback on every node in the graph, can mutate the graph
 ```
 
 ## Tests
