@@ -116,3 +116,4 @@ appropriate spec file in the tests directory
 * 0.2.0 Tree, Stack, Queue, Set, LinkedList
 * 0.3.0 BinarySearchTree
 * 0.4.0 Graph
+* 0.5.0 Clean up tests

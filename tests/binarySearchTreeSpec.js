@@ -26,7 +26,7 @@ describe('BinarySearchTree', function(){
     (typeof exBST.right).should.equal('object');
   });
 
-  it('.insert method', function(){
+  it('should have an insert method', function(){
     (typeof exBST.insert).should.equal('function');
     (exBST.right.value).should.equal(6);
     (exBST.left.value).should.equal(4);
