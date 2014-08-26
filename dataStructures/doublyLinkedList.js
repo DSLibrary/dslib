@@ -19,7 +19,6 @@ DoublyLinkedList.prototype.size = function(){
 
 DoublyLinkedList.prototype.addToTail = function(value){
   var newNode = this._makeNode(value);
-  this._size++;
   if(this.head === null){
     this.head = newNode;
     this.tail = newNode;
@@ -48,7 +47,7 @@ DoublyLinkedList.prototype.addToHead = function(value){
 DoublyLinkedList.prototype.contains = function(value){
   var targetNode = this.head;
   var found = false;
-  while(targetNode && !found){
+  while(targetNode !== null && !found){
     if(targetNode.value === value){
       found = true;
     } else {
@@ -56,6 +55,56 @@ DoublyLinkedList.prototype.contains = function(value){
     }
   }
   return found;
+};
+
+DoublyLinkedList.prototype.removeHead = function(){
+  var head = this.head;
+  this.head = head.next;
+  if(this.head){
+    this.head.prev = null;    
+  }
+  this.size--;
+  return head.value;
+};
+DoublyLinkedList.prototype.removeTail = function(){
+  var tail = this.tail;
+  this.tail = tail.prev;
+  if(this.tail){
+    this.tail.next = null;
+  }
+  this.size--;
+  return tail.value;
+};
+DoublyLinkedList.prototype.remove = function(value){
+  var found = false;
+  var target = this.head
+  while(!found && target !== null){
+    if(target.value === value){
+      found = true;
+    } else {
+      target = target.next;
+    }
+  }
+  if(found){
+    var next = target.next;
+    var prev = target.prev;
+    if(target === this.head){
+      this.head = next;
+    }
+    if(target === this.tail){
+      this.tail = prev;
+    }
+    if(next){
+      next.prev = prev;
+    }
+    if(prev){
+      prev.next = next;
+    }
+    this._size--;
+  }
+  console.log(target);
+  console.log(this);
+  return found && target.value;
 };
 
 module.exports = DoublyLinkedList;

@@ -86,6 +86,20 @@ graph.removeEdge(node1, node2) //removes the connection between 2 existing nodes
 graph.forEachNode(callback) //applys a callback on every node in the graph, can mutate the graph
 ```
 
+###DoublyLinkedList
+```
+var doublyLinkedList = new dslib.DoublyLinkedList();
+
+//methods
+doublyLinkedList.size() // returns size of list
+doublyLinkedList.addToTail(value) // adds a node with value to tail of list
+doublyLinkedList.addToHead(value) //adds a node with value to head of list
+doublyLinkedList.contains(value) //returns a boolean as to whether value is in the list
+doublyLinkedList.removeHead() //removes the head of the list
+doublyLinkedList.removeTail() //removes the tail of the list
+doublyLinkedList.remove(value) //removes a specific value
+```
+
 ## Tests
 
 ```
