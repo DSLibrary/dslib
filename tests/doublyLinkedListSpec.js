@@ -20,6 +20,7 @@ describe('DoublyLinkedList', function(){
     dLinkedList.addToTail(2);
     (dLinkedList.head.value).should.equal(1);
     (dLinkedList.tail.value).should.equal(2);
+    (dLinkedList.size()).should.equal(2);
   });
 
   it('should have an addToHead', function(){
@@ -27,6 +28,7 @@ describe('DoublyLinkedList', function(){
     dLinkedList.addToHead(4);
     (dLinkedList.head.value).should.equal(4);
     (dLinkedList.tail.value).should.equal(5);
+    (dLinkedList.size()).should.equal(2);
   });
 
   it('should have a contains method', function(){
@@ -34,6 +36,7 @@ describe('DoublyLinkedList', function(){
     dLinkedList.addToTail(1);
     (dLinkedList.contains(5)).should.equal(true);
     (dLinkedList.contains(1)).should.equal(true);
+    (dLinkedList.size()).should.equal(2);
   });
 
   it('should have a removeHead method', function(){
@@ -41,6 +44,7 @@ describe('DoublyLinkedList', function(){
     dLinkedList.addToTail(1);
     (dLinkedList.removeHead()).should.equal(5);
     (dLinkedList.removeHead()).should.equal(1);
+    (dLinkedList.size()).should.equal(0);
   });
 
   it('should have a removeTail method', function(){
@@ -48,6 +52,7 @@ describe('DoublyLinkedList', function(){
     dLinkedList.addToTail(1);
     (dLinkedList.removeTail()).should.equal(1);
     (dLinkedList.removeTail()).should.equal(5);
+    (dLinkedList.size()).should.equal(0);
   });
 
   it('should have a remove method', function(){
@@ -59,6 +64,7 @@ describe('DoublyLinkedList', function(){
     (dLinkedList.remove(4)).should.equal(4);
     (dLinkedList.remove(100)).should.equal(false);
     (dLinkedList.contains(4)).should.equal(false);
+    (dLinkedList.size()).should.equal(0);
   });
 
 });

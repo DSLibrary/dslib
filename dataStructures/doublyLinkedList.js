@@ -63,7 +63,7 @@ DoublyLinkedList.prototype.removeHead = function(){
   if(this.head){
     this.head.prev = null;    
   }
-  this.size--;
+  this._size--;
   return head.value;
 };
 DoublyLinkedList.prototype.removeTail = function(){
@@ -72,7 +72,7 @@ DoublyLinkedList.prototype.removeTail = function(){
   if(this.tail){
     this.tail.next = null;
   }
-  this.size--;
+  this._size--;
   return tail.value;
 };
 DoublyLinkedList.prototype.remove = function(value){
@@ -102,8 +102,6 @@ DoublyLinkedList.prototype.remove = function(value){
     }
     this._size--;
   }
-  console.log(target);
-  console.log(this);
   return found && target.value;
 };
 
