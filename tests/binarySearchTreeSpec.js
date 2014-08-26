@@ -4,7 +4,15 @@ var BinarySearchTree = require('../index.js').BinarySearchTree;
 
 describe('BinarySearchTree', function(){
 
-  var exBST = new BinarySearchTree(5);
+  var exBST;
+
+  beforeEach(function(){
+    exBST = new BinarySearchTree(5);
+    exBST.insert(6);
+    exBST.insert(4);
+    exBST.insert(3);
+
+  });
   
   it('should be a function', function(){
     (typeof BinarySearchTree).should.equal('function');
@@ -18,13 +26,10 @@ describe('BinarySearchTree', function(){
     (typeof exBST.right).should.equal('object');
   });
 
-  it('should have an insert method', function(){
+  it('.insert method', function(){
     (typeof exBST.insert).should.equal('function');
-    exBST.insert(6);
     (exBST.right.value).should.equal(6);
-    exBST.insert(4);
     (exBST.left.value).should.equal(4);
-    exBST.insert(3);
     (exBST.left.left.value).should.equal(3);
   });
 

@@ -74,7 +74,7 @@ describe('Graph', function(){
 
   });
 
-  it('should automatically create an edge between nodes if there was only one node', function(){
+  it('should create an edge if only one node before add', function(){
     var exGraph = new Graph();
     exGraph.addNode(1);
     exGraph.addNode(2);

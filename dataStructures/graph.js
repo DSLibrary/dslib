@@ -10,7 +10,7 @@ Graph.prototype.contains = function(value){
   return !!this._vertices[value];
 };
 
-Graph.prototype.addNode = function(value){
+Graph.prototype.addNode = function(value, targetEdge){
   var target;
   if(!this._vertices[value]){
     if(this._size === 1){
@@ -24,6 +24,9 @@ Graph.prototype.addNode = function(value){
       this.addEdge(target, value);
     }
     this._size++;
+    if(targetEdge !== undefined){
+      this.addEdge(value, targetEdge);
+    }
   }
 };
 
