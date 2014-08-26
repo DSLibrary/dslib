@@ -61,7 +61,7 @@ tree.addChild(value); //adds a child to tree with set value
 tree.contains(value); //returns a boolean if node with value in tree
 tree.removeChild(value); //removes a child from the tree with value
 tree.removeFromParent(); //removes a childnode from its parent
-tree.traverse(callback); //executes a callback on every value in tree
+tree.traverse(callback); //executes a callback on every value in tree, can mutate
 
 ```
 
@@ -117,7 +117,6 @@ gulp watch
 * QuadTree
 * Trie
 * Bloomfilter
-* Traverse on Tree
 * breadthFirstLog on binarySearch Tree
 * Set with numbers and strings
 * Set with any input
@@ -153,3 +152,4 @@ appropriate spec file in the tests directory
 * 0.4.0 Graph
 * 0.5.0 Clean up tests
 * 0.5.1 Add backlog
+* 0.5.2 Add traverse method on tree
