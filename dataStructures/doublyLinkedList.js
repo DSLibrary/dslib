@@ -77,7 +77,7 @@ DoublyLinkedList.prototype.removeTail = function(){
 };
 DoublyLinkedList.prototype.remove = function(value){
   var found = false;
-  var target = this.head
+  var target = this.head;
   while(!found && target !== null){
     if(target.value === value){
       found = true;

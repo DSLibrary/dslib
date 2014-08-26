@@ -39,8 +39,8 @@ BinarySearchTree.prototype.contains = function(value){
 BinarySearchTree.prototype.depthFirstLog = function(callback){
   var map = function(node){
     callback(node);
-    if(node.left !== null) map(node.left);
-    if(node.right !== null) map(node.right);
+    if(node.left !== null){map(node.left);}
+    if(node.right !== null){map(node.right);}
   };
   map(this);
 };

@@ -58,7 +58,10 @@ var tree = new dslib.Tree();
 
 //methods
 tree.addChild(value); //adds a child to tree with set value
-tree.contains(value); //returns a boolean if node with value in tree;
+tree.contains(value); //returns a boolean if node with value in tree
+tree.removeChild(value); //removes a child from the tree with value
+tree.removeFromParent(); //removes a childnode from its parent
+
 ```
 
 ###BinarySearchTree
@@ -77,13 +80,13 @@ binarySearchTree.depthFirstLog(callback) //executes callback on each node in tre
 var graph = new dslib.Graph();
 
 //methods
-graph.addNode(value) //adds a new node to the graph with a specific value, will add an edge if only item in graph
+graph.addNode(value, optional2) //adds a new node to the graph
 graph.contains(value) //returns a boolean whether graph contains value
 graph.removeNode(value) //removes a specific node from the graph
-graph.addEdge(node1,node2) //creates a connection between 2 existing nodes
+graph.addEdge(node1,node2) //creates a connection between 2 nodes
 graph.getEdge(node1, node2) //creates an edge between 2 existing nodes
-graph.removeEdge(node1, node2) //removes the connection between 2 existing nodes
-graph.forEachNode(callback) //applys a callback on every node in the graph, can mutate the graph
+graph.removeEdge(node1, node2) //removes the connection between 2 nodes
+graph.forEachNode(callback) //applys a callback to nodes in the graph, can mutate the graph
 ```
 
 ###DoublyLinkedList
@@ -94,7 +97,7 @@ var doublyLinkedList = new dslib.DoublyLinkedList();
 doublyLinkedList.size() // returns size of list
 doublyLinkedList.addToTail(value) // adds a node with value to tail of list
 doublyLinkedList.addToHead(value) //adds a node with value to head of list
-doublyLinkedList.contains(value) //returns a boolean as to whether value is in the list
+doublyLinkedList.contains(value) //returns a boolean as to if value in list
 doublyLinkedList.removeHead() //removes the head of the list
 doublyLinkedList.removeTail() //removes the tail of the list
 doublyLinkedList.remove(value) //removes a specific value
@@ -107,6 +110,23 @@ gulp mocha
 //or
 gulp watch
 ```
+
+##Backlog
+
+* QuadTree
+* Trie
+* Bloomfilter
+* Traverse on Tree
+* breadthFirstLog on binarySearch Tree
+* Set with numbers and strings
+* Set with any input
+* Make BinarySearchTree rebalance
+* bloomFilter
+* prefixTree
+* b-tree
+* red-black tree
+* priority queue
+
 
 ## Contributing
 
@@ -131,3 +151,4 @@ appropriate spec file in the tests directory
 * 0.3.0 BinarySearchTree
 * 0.4.0 Graph
 * 0.5.0 Clean up tests
+* 0.5.1 Add backlog
