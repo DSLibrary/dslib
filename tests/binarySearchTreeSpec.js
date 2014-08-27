@@ -11,6 +11,9 @@ describe('BinarySearchTree', function(){
     exBST.insert(6);
     exBST.insert(4);
     exBST.insert(3);
+    exBST.insert(4.5);
+    exBST.insert(6.5);
+    exBST.insert(5.5);
   });
   
   it('should be a function', function(){
@@ -49,6 +52,18 @@ describe('BinarySearchTree', function(){
     (exBST.contains(8).should.equal(true));
     (exBST.contains(12).should.equal(true));
     (exBST.contains(6)).should.equal(true);
+  });
+
+  it('should have a breadthFirstLog function', function(){
+    var testArray = [];
+    (typeof exBST.breadthFirstLog).should.equal('function');
+    exBST.breadthFirstLog(function(node){
+      testArray.push(node.value);
+    });
+    console.log(testArray);
+    (testArray[0]).should.equal(5);
+    (testArray[1]).should.equal(4);
+    (testArray[2]).should.equal(6);
   });
 
 });

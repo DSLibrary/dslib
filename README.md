@@ -117,7 +117,6 @@ gulp watch
 * QuadTree
 * Trie
 * Bloomfilter
-* breadthFirstLog on binarySearch Tree
 * Set with numbers and strings
 * Set with any input
 * Make BinarySearchTree rebalance
@@ -131,6 +130,8 @@ gulp watch
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
+
+*Feel free to contribute with any of the items in the backlog
 
 To Contribute via Issue Notice:
 * Write up a description of the problem
@@ -153,3 +154,4 @@ appropriate spec file in the tests directory
 * 0.5.0 Clean up tests
 * 0.5.1 Add backlog
 * 0.5.2 Add traverse method on tree
+* 0.5.3 Add breadthFirstLog tree on binarySearchTree
