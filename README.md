@@ -1,6 +1,8 @@
 dslib
 ==============
 
+![alt tag](https://circleci.com/gh/KiaFathi/dslib/tree/master.png?circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb&style=shield)
+
 A library of useful data structures in Javascript
 
 ## Installation
