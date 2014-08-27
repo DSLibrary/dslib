@@ -8,6 +8,7 @@ var Tree = require('./dataStructures/tree.js');
 var BinarySearchTree = require('./dataStructures/binarySearchTree.js');
 var Graph = require('./dataStructures/graph.js');
 var DoublyLinkedList = require('./dataStructures/doublyLinkedList.js');
+var BloomFilter = require('./dataStructures/bloomFilter.js');
 
 //library object that contains all data structures
 var dslib = {};
@@ -21,5 +22,6 @@ dslib.Tree = Tree;
 dslib.BinarySearchTree = BinarySearchTree;
 dslib.Graph = Graph;
 dslib.DoublyLinkedList = DoublyLinkedList;
+dslib.BloomFilter = BloomFilter;
 
 module.exports = dslib;

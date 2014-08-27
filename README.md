@@ -120,7 +120,6 @@ gulp watch
 * Set with numbers and strings
 * Set with any input
 * Make BinarySearchTree rebalance
-* bloomFilter
 * prefixTree
 * b-tree
 * red-black tree
@@ -131,7 +130,7 @@ gulp watch
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
-*Feel free to contribute with any of the items in the backlog
+* Feel free to contribute with any of the items in the backlog
 
 To Contribute via Issue Notice:
 * Write up a description of the problem

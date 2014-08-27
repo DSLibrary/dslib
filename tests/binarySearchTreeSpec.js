@@ -60,7 +60,6 @@ describe('BinarySearchTree', function(){
     exBST.breadthFirstLog(function(node){
       testArray.push(node.value);
     });
-    console.log(testArray);
     (testArray[0]).should.equal(5);
     (testArray[1]).should.equal(4);
     (testArray[2]).should.equal(6);
