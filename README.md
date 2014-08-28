@@ -166,3 +166,4 @@ appropriate spec file in the tests directory
 * 0.5.3 Add breadthFirstLog tree on binarySearchTree
 * 0.6.0 Add bloomFilter!
 * 0.6.1 Clean up documentation
+* 0.6.2 Fix circle
