@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KiaFathi/dataStructures",
   "devDependencies": {
+    "gulp": "^3.8.7",
     "chai": "^1.9.1",
     "gulp-jshint": "^1.8.4",
     "gulp-mocha": "^1.0.0",
