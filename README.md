@@ -104,6 +104,14 @@ doublyLinkedList.contains(value) //returns a boolean as to if value in list
 doublyLinkedList.removeHead() //removes the head of the list
 doublyLinkedList.removeTail() //removes the tail of the list
 doublyLinkedList.remove(value) //removes a specific value
+
+###BloomFilter
+
+var bloomFilter = new dslib.BloomFilter(size, hashes); 
+//create a bloom filter of a certain size and with a certain number of hashes
+
+bloomFilter.add(value) //adds a specific value into the bloomfilter
+bloomFilter.test(value) //tests if a specific value is in the bloomfilter
 ```
 
 ## Tests
@@ -156,3 +164,4 @@ appropriate spec file in the tests directory
 * 0.5.1 Add backlog
 * 0.5.2 Add traverse method on tree
 * 0.5.3 Add breadthFirstLog tree on binarySearchTree
+* 0.6.0 Add bloomFilter!

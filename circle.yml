@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    - npm install -g gulp@3.4.0
+    - npm install -g gulp
     - npm install --dev
     - npm install
 

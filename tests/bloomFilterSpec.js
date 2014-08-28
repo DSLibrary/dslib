@@ -6,7 +6,7 @@ describe('BloomFilter', function(){
 
   var exBF;
   beforeEach(function(){
-    exBF = new BloomFilter(3);
+    exBF = new BloomFilter(18,3);
   });
 
   it('should be a function', function(){
@@ -30,14 +30,14 @@ describe('BloomFilter', function(){
     var BF1 = new BloomFilter(15, 1);
     var BF2 = new BloomFilter(14, 2);
     BF1.add(1);
-    BF1.add(2);
+    BF1.add(25);
     (BF1.test(1)).should.equal(true);
-    (BF1.test(2)).should.equal(true);
+    (BF1.test(25)).should.equal(true);
     (BF1.test(3)).should.equal(false);
     BF2.add(1);
-    BF2.add(2);
+    BF2.add(42); 
     (BF2.test(1)).should.equal(true);
-    (BF2.test(2)).should.equal(true);
+    (BF2.test(42)).should.equal(true);
     (BF2.test(3)).should.equal(false);
   });
 
