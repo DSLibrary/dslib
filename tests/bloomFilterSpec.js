@@ -27,8 +27,8 @@ describe('BloomFilter', function(){
   });
 
   it('should be able to function with multiple different hash sizes', function(){
-    var BF1 = new BloomFilter(15, 1);
-    var BF2 = new BloomFilter(14, 2);
+    var BF1 = new BloomFilter(15, 3);
+    var BF2 = new BloomFilter(15, 3);
     BF1.add(1);
     BF1.add(25);
     (BF1.test(1)).should.equal(true);

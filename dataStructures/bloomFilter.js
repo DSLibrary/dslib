@@ -35,7 +35,7 @@ BloomFilter.prototype.genHashingFunctions = function(){
       for(var j = 0; j < keyString.length; j++){
         hashKey += (keyString.charCodeAt(j) + 5 * i)*keyString.charCodeAt(j);
       }
-      hashKey = hashKey % storage.length;
+      hashKey = Math.floor(hashKey % storage.length);
       return hashKey; 
     };
     this._hashingFunctions.push(hashFunction);
