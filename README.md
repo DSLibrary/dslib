@@ -134,6 +134,7 @@ gulp watch
 * b-tree
 * red-black tree
 * priority queue
+* Update Set to handle multiple types of objs
 
 
 ## Contributing
