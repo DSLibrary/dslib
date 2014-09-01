@@ -125,6 +125,7 @@ gulp watch
 
 ##Backlog
 
+* Convert to Organization
 * QuadTree
 * Trie
 * Set with numbers and strings
