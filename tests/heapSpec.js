@@ -39,4 +39,10 @@ describe('Heap', function(){
     (exHeap.deleteMin()).should.equal(0);
   });
 
+  it('should have a heapSort method', function(){
+    (typeof exHeap.heapSort).should.equal('function');
+    (exHeap.heapSort([3,2,1,4,6,5,7])).should.deep.equal([1,2,3,4,5,6,7]);
+    (exHeap.heapSort([-50,22,13,1,50,21,103])).should.deep.equal([-50,1,13,21,22,50,103]);
+  });
+
 });
