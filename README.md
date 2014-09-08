@@ -169,3 +169,4 @@ appropriate spec file in the tests directory
 * 0.6.0 Add bloomFilter!
 * 0.6.1 Clean up documentation
 * 0.6.2 Fix circle
+* 0.7.0 Heap
