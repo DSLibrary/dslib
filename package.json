@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KiaFathi/dataStructures.git"
+    "url": "https://github.com/DSLibrary/dslib.git"
   },
   "author": "Kia Fathi <kiafathi@me.com> (http://kiafathi.com/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KiaFathi/dataStructures/issues"
+    "url": "https://github.com/DSLibrary/dslib/issues"
   },
-  "homepage": "https://github.com/KiaFathi/dataStructures",
+  "homepage": "https://github.com/DSLibrary/dslib",
   "devDependencies": {
     "chai": "^1.9.1",
     "gulp-mocha": "^1.0.0",
