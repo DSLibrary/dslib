@@ -115,6 +115,15 @@ bloomFilter.add(value) //adds a specific value into the bloomfilter
 bloomFilter.test(value) //tests if a specific value is in the bloomfilter
 ```
 
+###Heap
+```
+//create a min heap
+var heap = new dslib.Heap();
+heap.getMin() //returns the minimum value in the heap
+heap.insert(value) //inserts a specific value to the heap
+heap.deleteMin() //deletes a specific value from a heap
+```
+
 ## Tests
 
 ```
@@ -125,7 +134,6 @@ gulp watch
 
 ##Backlog
 
-* Convert to Organization DSLIB
 * QuadTree
 * Trie
 * Set with numbers and strings
