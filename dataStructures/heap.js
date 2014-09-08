@@ -36,29 +36,37 @@ Heap.prototype.getMin = function(){
 //replaces first item with last, pops off last item, then percolates down
 Heap.prototype.deleteMin = function(){
   var removedMin = this._storage[0];
-  this._storage[0] = this._storage[(this._storage.length - 1)];
+  this._swap(0, this._storage.length - 1);
   this._storage.pop();
   var startIndex = 0;
   var set = false;
   while(!set){
     var leftChild = startIndex * 2;
     var rightChild = startIndex * 2 + 1;
+    var direction;
     if(this._storage[startIndex] > this._storage[leftChild] && this._storage[startIndex] > this._storage[rightChild]){
-      var right = this._storage[rightChild] < this._storage[leftChild];
-      if(right){
-        this._swap(startIndex, rightChild);
-        startIndex = rightChild;
-      } else {
-        this._swap(startIndex, leftChild);
-        startIndex = leftChild;
+      if(this._storage[rightChild] < this._storage[leftChild]){
+        direction = 'right';
+      } 
+      else {
+        direction = 'left';
       }
     }
     else if(this._storage[leftChild] < this._storage[startIndex]){
-      this._swap(startIndex, leftChild);
-      startIndex = leftChild;
-    } else if (this._storage[rightChild] < this._storage[startIndex]){
+      direction = 'left';
+    } 
+    else if (this._storage[rightChild] < this._storage[startIndex]){
+      direction = 'right';
+    } 
+    else {
+      direction = 'set';
+    }
+    if(direction === 'right'){
       this._swap(startIndex, rightChild);
       startIndex = rightChild;
+    } else if(direction === 'left'){
+      this._swap(startIndex, leftChild);
+      startIndex = leftChild;
     } else {
       set = true;
     }
@@ -72,7 +80,6 @@ Heap.prototype.heapSort = function(array){
   for(var i = 0; i < array.length; i++){
     heap.insert(array[i]);
   }
-  console.log(heap);
   for(var j = 0; j < array.length; j++){
     sortedArray.push(heap.deleteMin());
   }
