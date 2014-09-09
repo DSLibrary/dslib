@@ -44,6 +44,7 @@ describe('Heap', function(){
     (exHeap.heapSort([3,2,1,4,6,5,7])).should.deep.equal([1,2,3,4,5,6,7]);
     (exHeap.heapSort([-50,22,13,1,50,21,103])).should.deep.equal([-50,1,13,21,22,50,103]);
     (exHeap.heapSort([100,99,98,97,96,95,94,93,92,91,90,89])).should.deep.equal([89,90,91,92,93,94,95,96,97,98,99,100]);
+    (exHeap.heapSort([99,100,97,98,95,90,94,92,91,96,93,89])).should.deep.equal([89,90,91,92,93,94,95,96,97,98,99,100]);
   });
 
 });
