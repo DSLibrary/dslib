@@ -122,7 +122,7 @@ var heap = new dslib.Heap();
 heap.getMin() //returns the minimum value in the heap
 heap.insert(value) //inserts a specific value to the heap
 heap.deleteMin() //deletes a specific value from a heap
-heap.heatSort(array) //takes an array of numbers and returns a least to greatest numerically sorted array
+heap.heapSort(array) //takes an array of numbers and returns a least to greatest numerically sorted array
 ```
 
 ## Tests
