@@ -30,11 +30,11 @@ Set.prototype.clear = function(){
 // Returns the count of items in this set.
 Set.prototype.size = function(){
   return Object.keys(this._storage).length;
-}
+};
 
 // Same as contains function.
 Set.prototype.has = function(value){
   return this.contains(value);
-}
+};
 
 module.exports = Set;
