@@ -10,6 +10,7 @@ var Graph = require('./dataStructures/graph.js');
 var DoublyLinkedList = require('./dataStructures/doublyLinkedList.js');
 var BloomFilter = require('./dataStructures/bloomFilter.js');
 var Heap = require('./dataStructures/heap.js');
+var Quadtree = require('./dataStructures/quadTree.js');
 
 //library object that contains all data structures
 var dslib = {};
@@ -25,5 +26,8 @@ dslib.Graph = Graph;
 dslib.DoublyLinkedList = DoublyLinkedList;
 dslib.BloomFilter = BloomFilter;
 dslib.Heap = Heap;
+dslib.Quadtree = Quadtree.Quadtree;
+dslib.Box = Quadtree.Box;
+dslib.Point = Quadtree.Point;
 
 module.exports = dslib;

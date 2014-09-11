@@ -21,19 +21,15 @@ Tree.prototype.addChild = function(value){
 };
 
 Tree.prototype.contains = function(value){
-  var found = false;
-  var subroutine = function(node){
-    if(node.value === value){
-      found = true;
-    } 
-    else {
-      for(var i = 0; i < node.children.length; i++){
-        subroutine(node.children[i]);
-      }
+  if(this.value === value){
+    return true;
+  } 
+  for(var i = 0; i < this.children.length; i++){
+    if(this.children[i].contains(value)){
+      return true;
     }
-  };
-  subroutine(this);
-  return found;
+  }
+  return false;
 };
 
 Tree.prototype.removeChild= function(value){
