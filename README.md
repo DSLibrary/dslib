@@ -115,6 +115,7 @@ doublyLinkedList.remove(value) //removes a specific value
 var bloomFilter = new dslib.BloomFilter(size, hashes); 
 //create a bloom filter of a certain size and with a certain number of hashes
 
+//methods
 bloomFilter.add(value) //adds a specific value into the bloomfilter
 bloomFilter.test(value) //tests if a specific value is in the bloomfilter
 ```
@@ -123,10 +124,32 @@ bloomFilter.test(value) //tests if a specific value is in the bloomfilter
 ```
 //create a min heap
 var heap = new dslib.Heap();
+
+//methods
 heap.getMin() //returns the minimum value in the heap
 heap.insert(value) //inserts a specific value to the heap
 heap.deleteMin() //deletes a specific value from a heap
 heap.heapSort(array) //takes an array of numbers and returns a least to greatest numerically sorted array
+```
+
+###QuadTree
+```
+//necessary helper classes
+
+//create a box that with the designated min and max coordinates
+var box = new dslib.Box(minX, minY, maxX, maxY);
+
+//create a point with the designated x and y coordinates
+var point = new dslib.Point(x, y)
+
+//QuadTree class
+//create a point QuadTree of dimensions designated by box.
+var quadTree = new dslib.QuadTree(box);
+
+//methods
+quadTree.insert(point) //insert a point into the quad tree.
+quadTree.retrieve(box) //returns an array of all the points within a quadtree for a specific box
+quadTree.findNearestPointTo(point /*, optional initialSearchRadius */) //returns the nearest point to point argument
 ```
 
 ## Tests
@@ -139,16 +162,12 @@ gulp watch
 
 ##Backlog
 
-* QuadTree
 * Trie
-* Set with numbers and strings
-* Set with any input
 * Make BinarySearchTree rebalance
 * prefixTree
 * b-tree
 * red-black tree
 * priority queue
-* Update Set to handle multiple types of objs
 
 
 ## Contributing
@@ -184,3 +203,4 @@ appropriate spec file in the tests directory
 * 0.6.2 Fix circle
 * 0.7.0 Heap
 * 0.8.0 Update Set (Thanks to David Deriso)
+* 0.9.0 Add QuadTree (Thanks to davegw)
