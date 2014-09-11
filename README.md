@@ -41,7 +41,11 @@ var set = new dslib.Set();
 //methods
 set.add(item); //adds an item to the set
 set.remove(item); //removes an item from the set
-set.contains(item); // returns a boolean if item in slt 
+set.delete(item); // removes an item from the set, same as remove
+set.contains(item) // returns a boolean if item is in a set
+set.has(item) // returns a boolean if item is in set, same as contains
+set.clear() // emptys the set
+set.size() // returns the number of items in the set
 ```
 
 ###LinkedList
@@ -179,3 +183,4 @@ appropriate spec file in the tests directory
 * 0.6.1 Clean up documentation
 * 0.6.2 Fix circle
 * 0.7.0 Heap
+* 0.8.0 Update Set (Thanks to David Deriso)
