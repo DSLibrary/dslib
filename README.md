@@ -152,6 +152,52 @@ quadTree.retrieve(box) //returns an array of all the points within a quadtree fo
 quadTree.findNearestPointTo(point /*, optional initialSearchRadius */) //returns the nearest point to point argument
 ```
 
+###n-Tree
+```
+An n-dimensional tree. Great for fast lookup of points in three or more dimensions. 
+Essentially the same as a Quadtree but can be used for things like 3D collision detection.
+
+//create an n-tree with the designated max and min coordinates, and a maximum number of points per 'bucket'
+var nTree = new dslib.nTree([10, 20, 5 etc...], [0, -20, 0...], 4);
+
+//methods
+
+nTree.insert([5, -5, 12], "{myValue: "fooBot"}"); //insert a point with the designated coordinates and an optional value
+
+quadTree.query([maxima], [minima]) //returns all points within given coordinates
+
+nTree.eachLeaf([maxima], [minima], function(leaf){
+  console.log(leaf);
+}]) //iterate over each point in the tree within given range
+
+quadTree.each([maxima], [minima], function(leaf){
+  console.log(leaf);
+}]) //iterate over each node in the tree within given range
+
+/*Implement your own functions on top of these. E.g., to get nearest neighbours (e.g., in a KNN machine-learning algorithm), try: */
+
+var getDistance = function(a, b){
+  var sumSq = 0;
+  for(var i=0; i<a.length; i++){
+    sumSq += Math.pow(a[i] - b[i], 2);
+  }
+  return Math.sqrt(sumSq);
+};
+
+var getNearestNeighbours = function(coords, k){
+  var results = [];
+  nMap.eachNode(coords, coords, function(leaf){
+    for(var i=0; i<leaf.values.length; i++){
+      results.push(leaf.values[i]);
+    }
+    
+  });
+};
+
+
+
+```
+
 ## Tests
 
 ```
