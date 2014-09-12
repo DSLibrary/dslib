@@ -250,3 +250,4 @@ appropriate spec file in the tests directory
 * 0.7.0 Heap
 * 0.8.0 Update Set (Thanks to David Deriso)
 * 0.9.0 Add QuadTree (Thanks to davegw)
+* 0.10.0 Add n-Tree (Thanks to rp-3)
