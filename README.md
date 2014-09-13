@@ -1,9 +1,8 @@
 dslib
 ==============
 
-
-[![Circle CI](https://circleci.com/gh/DSLibrary/dslib.png?style=shield&circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb)](https://circleci.com/gh/DSLibrary/dslib)
 [![NPM](http://img.shields.io/npm/v/dslib.svg)](https://www.npmjs.org/package/dslib)
+[![Circle CI](https://circleci.com/gh/DSLibrary/dslib.png?style=shield&circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb)](https://circleci.com/gh/DSLibrary/dslib)
 [![Coverage Status](http://img.shields.io/coveralls/DSLibrary/dslib.svg)](https://coveralls.io/r/DSLibrary/dslib?branch=master)
 
 A library of useful data structures in Javascript
