@@ -1,3 +1,5 @@
+'use strict';
+
 var should   = require('chai').should();
 var Tree     = require('../dataStructures/n-tree.js');
 
@@ -119,8 +121,8 @@ describe("n-tree", function() {
       var iterationTime = iterationComplete - insertionComplete;
 
       valueCounter.should.equal(100000);
-      insertionTime.should.be.lessThan(1500);
-      iterationTime.should.be.lessThan(100);
+      insertionTime.should.be.lessThan(2500);
+      iterationTime.should.be.lessThan(250);
 
     });
   });
@@ -168,7 +170,7 @@ describe("n-tree", function() {
       var time = new Date() - start;
 
       leafCounter.should.equal(10000);
-      time.should.be.lessThan(150);
+      time.should.be.lessThan(300);
 
     });
 
