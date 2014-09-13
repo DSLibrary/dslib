@@ -61,7 +61,7 @@ BinarySearchTree.prototype.breadthFirstLog = function(callback){
   }
 };
 
-BinarySearchTree.prototype.balanceTree = function() {
+BinarySearchTree.prototype.rebalance = function() {
   // create empty array to store all nodes
   var nodes = [];
 
@@ -80,8 +80,12 @@ BinarySearchTree.prototype.balanceTree = function() {
     return Math.floor(nodelist.length / 2);
   };
 
+  console.log('tree before:', this);
+
   // create top of new Tree
-  var newTree = new BinarySearchTree(nodes[findMiddleNodePosition(nodes)]);
+  this.value = nodes[findMiddleNodePosition(nodes)];
+  this.left = null;
+  this.right = null;
 
   var balance = function(nodelist, tree) {
     var leftBranch = nodelist.slice(0, Math.floor(nodelist.length / 2));
@@ -89,18 +93,18 @@ BinarySearchTree.prototype.balanceTree = function() {
     if (leftBranch.length > 0) {
       var leftMiddleNode = Math.floor(leftBranch.length / 2);
       tree.insert(leftBranch[leftMiddleNode]);
-      balance(leftBranch, newTree);
+      balance(leftBranch, tree);
     }
     if (rightBranch.length > 0) {
       var rightMiddleNode = Math.floor(rightBranch.length / 2);
       tree.insert(rightBranch[rightMiddleNode]);
-      balance(rightBranch, newTree);
+      balance(rightBranch, tree);
     }
   };
-  balance(nodes, newTree);
-
+  balance(nodes, this);
+  console.log('tree after:', this);
   // return new tree
   // how to manipulate existing, NOT return new tree?
-  return newTree;
+  // return newTree;
 };
 // module.exports = BinarySearchTree;
