@@ -65,4 +65,20 @@ describe('BinarySearchTree', function(){
     (testArray[2]).should.equal(6);
   });
 
+  it('should have a rebalance method', function(){
+    (typeof exBST.rebalance).should.equal('function');
+    (exBST.insert(7));
+    (exBST.insert(8));
+    (exBST.insert(9));
+    (exBST.insert(10));
+    (exBST.rebalance());
+    var testArray = [];
+    exBST.breadthFirstLog(function(node){
+      testArray.push(node.value);
+    });
+    (testArray[0]).should.equal(6);
+    (testArray[1]).should.equal(4.5);
+    (testArray[2]).should.equal(8);
+  });
+
 });

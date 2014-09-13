@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 var BinarySearchTree = function(value){
   this.value = value;
@@ -62,49 +62,31 @@ BinarySearchTree.prototype.breadthFirstLog = function(callback){
 };
 
 BinarySearchTree.prototype.rebalance = function() {
-  // create empty array to store all nodes
   var nodes = [];
-
-  // use depthFirstLog to go through tree and retrieve nodes
-  this.depthFirstLog(function(node) {
+  this.breadthFirstLog(function(node) {
     nodes.push(node.value);
   });
-
-  // sort array 
   nodes.sort(function(a, b) {
     return a - b;
   });
-
-  // helper function to find middle node
-  var findMiddleNodePosition = function(nodelist) {
+  var findMiddlePosition = function(nodelist) {
     return Math.floor(nodelist.length / 2);
   };
-
-  console.log('tree before:', this);
-
-  // create top of new Tree
-  this.value = nodes[findMiddleNodePosition(nodes)];
+  this.value = nodes[findMiddlePosition(nodes)];
   this.left = null;
   this.right = null;
-
   var balance = function(nodelist, tree) {
-    var leftBranch = nodelist.slice(0, Math.floor(nodelist.length / 2));
-    var rightBranch = nodelist.slice(Math.floor(nodelist.length / 2) + 1);
+    var leftBranch = nodelist.slice(0, findMiddlePosition(nodelist));
     if (leftBranch.length > 0) {
-      var leftMiddleNode = Math.floor(leftBranch.length / 2);
-      tree.insert(leftBranch[leftMiddleNode]);
+      tree.insert(leftBranch[findMiddlePosition(leftBranch)]);
       balance(leftBranch, tree);
     }
+    var rightBranch = nodelist.slice(findMiddlePosition(nodelist) + 1);
     if (rightBranch.length > 0) {
-      var rightMiddleNode = Math.floor(rightBranch.length / 2);
-      tree.insert(rightBranch[rightMiddleNode]);
+      tree.insert(rightBranch[findMiddlePosition(rightBranch)]);
       balance(rightBranch, tree);
     }
   };
   balance(nodes, this);
-  console.log('tree after:', this);
-  // return new tree
-  // how to manipulate existing, NOT return new tree?
-  // return newTree;
 };
-// module.exports = BinarySearchTree;
+module.exports = BinarySearchTree;
