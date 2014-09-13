@@ -4,9 +4,13 @@ var LinkedList = require('../index.js').LinkedList;
 var should = require('chai').should();
 
 
-var exLinkedList = new LinkedList();
-
 describe('LinkedList', function(){
+
+  var exLinkedList;
+
+  beforeEach(function(){
+    exLinkedList = new LinkedList();
+  });
 
   it('should be a function', function(){
     (typeof LinkedList).should.equal('function');
@@ -18,6 +22,15 @@ describe('LinkedList', function(){
 
   it('should have a tail', function(){
     (typeof exLinkedList.tail).should.equal('object');
+  });
+
+  it('should have a size method', function(){
+    (typeof exLinkedList.size).should.equal('function');
+    var size = exLinkedList.size();
+    exLinkedList.addToTail(100);
+    exLinkedList.addToTail(101);
+    exLinkedList.size().should.equal(size+2);
+
   });
 
   it('should have an addToTail method', function(){
@@ -33,6 +46,9 @@ describe('LinkedList', function(){
   });
 
   it('should have a removeHead method', function(){
+    exLinkedList.addToTail(1);
+    exLinkedList.addToTail(2);
+
     (typeof exLinkedList.removeHead).should.equal('function');
     (exLinkedList.removeHead()).should.equal(1);
     (exLinkedList.head.value).should.equal(2);
