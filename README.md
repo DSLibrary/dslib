@@ -1,7 +1,10 @@
 dslib
 ==============
 
+
 [![Circle CI](https://circleci.com/gh/DSLibrary/dslib.png?style=shield&circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb)](https://circleci.com/gh/DSLibrary/dslib)
+[![NPM](http://img.shields.io/npm/v/dslib.svg)](https://www.npmjs.org/package/dslib)
+[![Coverage Status](http://img.shields.io/coveralls/DSLibrary/dslib.svg)](https://coveralls.io/r/DSLibrary/dslib?branch=master)
 
 A library of useful data structures in Javascript
 
@@ -21,16 +24,16 @@ var stack = new dslib.Stack();
 stack.push(item); //adds an item to top of stack
 stack.pop(); // removes and returns last item added to stack
 stack.size() // returns size of stack
-```     
+```
 
 ###Queue
 ```
 var queue = new dslib.Queue();
 
-//methods 
+//methods
 queue.enqueue(item); // adds an item to end of queue
 queue.dequeue(); // removes and returns first item in queue
-queue.size(); // returns size of queue 
+queue.size(); // returns size of queue
 ```
 
 ###Set
@@ -113,7 +116,7 @@ doublyLinkedList.remove(value) //removes a specific value
 
 ###BloomFilter
 ```
-var bloomFilter = new dslib.BloomFilter(size, hashes); 
+var bloomFilter = new dslib.BloomFilter(size, hashes);
 //create a bloom filter of a certain size and with a certain number of hashes
 
 //methods
@@ -155,7 +158,7 @@ quadTree.findNearestPointTo(point /*, optional initialSearchRadius */) //returns
 
 ###n-Tree
 ```
-An n-dimensional tree. Great for fast lookup of points in three or more dimensions. 
+An n-dimensional tree. Great for fast lookup of points in three or more dimensions.
 Essentially the same as a Quadtree but can be used for things like 3D collision detection.
 
 //create an n-tree with the designated max and min coordinates, and a maximum number of points per 'bucket'
@@ -191,7 +194,7 @@ var getNearestNeighbours = function(coords, k){
     for(var i=0; i<leaf.values.length; i++){
       results.push(leaf.values[i]);
     }
-    
+
   });
 };
 
@@ -202,7 +205,7 @@ var getNearestNeighbours = function(coords, k){
 ## Tests
 
 ```
-gulp mocha
+gulp test
 //or
 gulp watch
 ```
@@ -230,7 +233,7 @@ To Contribute via Issue Notice:
 To Contribute via Pull Request:
 * Fork the repo
 
-* Add unit tests for any new or changed functionality. Write tests in the 
+* Add unit tests for any new or changed functionality. Write tests in the
 appropriate spec file in the tests directory
 
 * Submit a pull request to master branch
@@ -253,3 +256,4 @@ appropriate spec file in the tests directory
 * 0.9.0 Add QuadTree (Thanks to davegw)
 * 0.10.0 Add n-Tree (Thanks to rp-3)
 * 0.10.1 Add size() method on linkedList (Thanks to David Deriso)
+* 0.10.2 Add Coveralls and Istanbul for Code Coverage (Thanks to Andrew Zey)
