@@ -1,7 +1,7 @@
 dslib
 ==============
 
-[![Circle CI](https://circleci.com/gh/DSLibrary/dslib.png?style=badge&circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb)](https://circleci.com/gh/DSLibrary/dslib)
+[![Circle CI](https://circleci.com/gh/DSLibrary/dslib.png?style=shield&circle-token=9f898f273bc7c23f93416b505b1f25bf9b1397cb)](https://circleci.com/gh/DSLibrary/dslib)
 
 A library of useful data structures in Javascript
 
@@ -53,6 +53,7 @@ set.size() // returns the number of items in the set
 var linkedList = new dslib.LinkedList();
 
 //methods
+linkedList.size(); // returns the size of a linkedList
 linkedList.addToTail(item); //adds an item to tail of linkedList
 linkedList.removeHead(); //removes an item from head of linkedList
 linkedList.contains(item); //returns a boolean if item in linkedList
@@ -251,3 +252,4 @@ appropriate spec file in the tests directory
 * 0.8.0 Update Set (Thanks to David Deriso)
 * 0.9.0 Add QuadTree (Thanks to davegw)
 * 0.10.0 Add n-Tree (Thanks to rp-3)
+* 0.10.1 Add size() method on linkedList (Thanks to David Deriso)
