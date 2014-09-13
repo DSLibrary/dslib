@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 var BinarySearchTree = function(value){
   this.value = value;
@@ -35,7 +35,6 @@ BinarySearchTree.prototype.contains = function(value){
   return found;
 };
 
-
 BinarySearchTree.prototype.depthFirstLog = function(callback){
   var map = function(node){
     callback(node);
@@ -62,4 +61,46 @@ BinarySearchTree.prototype.breadthFirstLog = function(callback){
   }
 };
 
-module.exports = BinarySearchTree;
+BinarySearchTree.prototype.balanceTree = function() {
+  // create empty array to store all nodes
+  var nodes = [];
+
+  // use depthFirstLog to go through tree and retrieve nodes
+  this.depthFirstLog(function(node) {
+    nodes.push(node.value);
+  });
+
+  // sort array 
+  nodes.sort(function(a, b) {
+    return a - b;
+  });
+
+  // helper function to find middle node
+  var findMiddleNodePosition = function(nodelist) {
+    return Math.floor(nodelist.length / 2);
+  };
+
+  // create top of new Tree
+  var newTree = new BinarySearchTree(nodes[findMiddleNodePosition(nodes)]);
+
+  var balance = function(nodelist, tree) {
+    var leftBranch = nodelist.slice(0, Math.floor(nodelist.length / 2));
+    var rightBranch = nodelist.slice(Math.floor(nodelist.length / 2) + 1);
+    if (leftBranch.length > 0) {
+      var leftMiddleNode = Math.floor(leftBranch.length / 2);
+      tree.insert(leftBranch[leftMiddleNode]);
+      balance(leftBranch, newTree);
+    }
+    if (rightBranch.length > 0) {
+      var rightMiddleNode = Math.floor(rightBranch.length / 2);
+      tree.insert(rightBranch[rightMiddleNode]);
+      balance(rightBranch, newTree);
+    }
+  };
+  balance(nodes, newTree);
+
+  // return new tree
+  // how to manipulate existing, NOT return new tree?
+  return newTree;
+};
+// module.exports = BinarySearchTree;
