@@ -119,8 +119,8 @@ describe("n-tree", function() {
       var iterationTime = iterationComplete - insertionComplete;
 
       valueCounter.should.equal(100000);
-      insertionTime.should.be.lessThan(800);
-      iterationTime.should.be.lessThan(30);
+      insertionTime.should.be.lessThan(1500);
+      iterationTime.should.be.lessThan(100);
 
     });
   });
@@ -129,7 +129,7 @@ describe("n-tree", function() {
 
     it('should find the correct number of leaves', function(){
       var n = new Tree([10, 10], [0, 0], 2);
-      
+
       n.insert([1, 1], '[1, 1]');
       n.insert([1, 7], '[1, 7]');
       n.insert([1, 8], '[1, 8]');
@@ -151,7 +151,7 @@ describe("n-tree", function() {
   });
 
   describe('leaf iteration function performance', function(){
-    
+
     var n = new Tree([10, 10, 10, 10], [0, 0, 0, 0], 4);
     randomCoords(10000, n);
     var leafCounter = 0;
@@ -168,12 +168,12 @@ describe("n-tree", function() {
       var time = new Date() - start;
 
       leafCounter.should.equal(10000);
-      time.should.be.lessThan(60);
+      time.should.be.lessThan(150);
 
     });
 
     it('should perform collision detection in a reasonable amount of time', function(){
-      
+
       var start = new Date();
 
       n.eachLeaf([10, 10, 10, 10], [0, 0, 0, 0], function(leaf){
