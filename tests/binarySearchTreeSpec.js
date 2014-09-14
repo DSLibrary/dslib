@@ -67,11 +67,13 @@ describe('BinarySearchTree', function(){
 
   it('should have a rebalance method', function(){
     (typeof exBST.rebalance).should.equal('function');
+  });
+
+  it('should automatically rebalance when maximum depth is more than twice minimum depth', function() {
     (exBST.insert(7));
     (exBST.insert(8));
     (exBST.insert(9));
     (exBST.insert(10));
-    (exBST.rebalance());
     var testArray = [];
     exBST.breadthFirstLog(function(node){
       testArray.push(node.value);
