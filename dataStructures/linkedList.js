@@ -13,6 +13,10 @@ LinkedList.prototype._makeNode = function(value){
   return node;
 };
 
+LinkedList.prototype.size = function(){
+  return this._size;
+};
+
 LinkedList.prototype.addToTail = function(value){
   var newNode = this._makeNode(value);
   if(this.head === null){
@@ -25,6 +29,7 @@ LinkedList.prototype.addToTail = function(value){
     this._size++;
   }
 };
+
 LinkedList.prototype.removeHead = function(){
   this._size--;
   var removed = this.head;
