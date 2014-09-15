@@ -257,3 +257,4 @@ appropriate spec file in the tests directory
 * 0.10.0 Add n-Tree (Thanks to rp-3)
 * 0.10.1 Add size() method on linkedList (Thanks to David Deriso)
 * 0.10.2 Add Coveralls and Istanbul for Code Coverage (Thanks to Andrew Zey)
+* 1.0.0 Clean up and add auto-rebalancing to BST (Thanks to smk1992 and JonathanWarrick)
