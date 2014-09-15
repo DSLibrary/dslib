@@ -26,29 +26,19 @@ BinarySearchTree.prototype.insert = function(value){
 };
 
 BinarySearchTree.prototype.contains = function(value){
-  var found = false;
-  var search = function(node){
-    if(node.value === value){
-      found = true;
-    } 
-    else if(node.value < value && node.right !== null) {
-      search(node.right);
-    }
-    else if (node.value > value && node.left !== null){
-      search(node.left);
-    }
-  };
-  search(this);
-  return found;
-};
+  if(this.value === value){ return true; }
+  else if(this.value < value && this.right !== null){ return this.right.contains(value); }
+  else if (this.value > value && this.left !== null){ return this.left.contains(value); }
+  else { return false;}
+}
 
 BinarySearchTree.prototype.depthFirstLog = function(callback){
-  var map = function(node){
+  var each = function(node){
     callback(node);
-    if(node.left !== null){map(node.left);}
-    if(node.right !== null){map(node.right);}
+    if(node.left !== null){each(node.left);}
+    if(node.right !== null){each(node.right);}
   };
-  map(this);
+  each(this);
 };
 
 BinarySearchTree.prototype.breadthFirstLog = function(callback){
