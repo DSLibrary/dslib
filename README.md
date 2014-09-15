@@ -82,6 +82,8 @@ var binarySearchTree = new dslib.BinarySearchTree();
 binarySearchTree.insert(value) //inserts a node with the specific value
 binarySearchTree.contains(value) //returns a boolean if the value is in the tree
 binarySearchTree.depthFirstLog(callback) //executes callback on each node in tree, depth first order
+binarySearchTree.breadthFirstLog(callback) //executes callback on each node in tree, breadth first order
+binarySearchTree.rebalance() //rebalances tree upon insertion when inserted node causes maximum depth to be more than two times greater than minimum depth
 ```
 
 ###Graph
@@ -212,7 +214,6 @@ gulp watch
 ##Backlog
 
 * Trie
-* Make BinarySearchTree rebalance
 * prefixTree
 * b-tree
 * red-black tree
