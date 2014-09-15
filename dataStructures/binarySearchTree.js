@@ -4,10 +4,14 @@ var BinarySearchTree = function(value){
   this.value = value;
   this.left = null;
   this.right = null;
+  this.count = 1;
+  this.height = 0;
 };
 
 BinarySearchTree.prototype.insert = function(value){
+  var currentHeight = 0;
   var placeValue = function(node){
+    currentHeight++;
     if(value > node.value){
       !node.right ? node.right = new BinarySearchTree(value) : placeValue(node.right);
     }
@@ -16,6 +20,9 @@ BinarySearchTree.prototype.insert = function(value){
     }
   };
   placeValue(this);
+  this.count++;
+  if(currentHeight > this.height){this.height = currentHeight;}
+  if(this.count > 1 && this.count/this.height < 2){this.rebalance();}
 };
 
 BinarySearchTree.prototype.contains = function(value){
@@ -34,7 +41,6 @@ BinarySearchTree.prototype.contains = function(value){
   search(this);
   return found;
 };
-
 
 BinarySearchTree.prototype.depthFirstLog = function(callback){
   var map = function(node){
@@ -62,4 +68,30 @@ BinarySearchTree.prototype.breadthFirstLog = function(callback){
   }
 };
 
+BinarySearchTree.prototype.rebalance = function() {
+  var nodes = [];
+  this.breadthFirstLog(function(node) {
+    nodes.push(node.value);
+  });
+  nodes.sort(function(a, b) {
+    return a - b;
+  });
+  var findMiddlePosition = function(nodelist) {
+    return Math.floor(nodelist.length / 2);
+  };
+  this.value = nodes[findMiddlePosition(nodes)];
+  this.left = null;
+  this.right = null;
+  this.count = 1;
+  this.height = 0;
+  var balance = function(nodelist, tree) {
+    var leftBranch = nodelist.slice(0, findMiddlePosition(nodelist));
+    var rightBranch = nodelist.slice(findMiddlePosition(nodelist) + 1);
+    if (leftBranch.length > 0) {tree.insert(leftBranch[findMiddlePosition(leftBranch)]);}
+    if (rightBranch.length > 0) {tree.insert(rightBranch[findMiddlePosition(rightBranch)]);}
+    if (leftBranch.length > 0) {balance(leftBranch, tree);}
+    if (rightBranch.length > 0) {balance(rightBranch, tree);}
+  };
+  balance(nodes, this);
+};
 module.exports = BinarySearchTree;
