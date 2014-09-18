@@ -48,6 +48,46 @@ set.contains(item) // returns a boolean if item is in a set
 set.has(item) // returns a boolean if item is in set, same as contains
 set.clear() // emptys the set
 set.size() // returns the number of items in the set
+Set.fromArray(array) // creates a new set from an array.
+set.toArray() // creates an array out of a set
+set.copy() // creates a new copy of the set
+set.union(args) // creates a new set from an existing set adding existing args from set
+set.difference(args) // creates a new set from an existing set, removing args from set
+set.intersection(args) // create a set which is an intersection of the set and its arguments.
+```
+
+###setStict
+
+```
+/* a strict set should be used as an alternative to set when
+ * object uniqueness is necessary, or if storing functions in a set
+ */
+var setStrict = new dislib.SetStrict();
+
+//methods
+setStrict.add(val) // add a value to the set
+setStrict.remove(val) // removes an item from the set
+setStrict.delete(val) // synonymous with remove
+setStrict.contains(val) // returns a boolean if item is in a set
+setStrict.has(val) // synonymous with contains
+setStrict.clear() // empties a set
+setStric.size() // returns the size of a set
+```
+
+###map
+
+```
+var map = new dslib.Map();
+
+//methods
+map.add(key, val); // inserts key value pair to map
+map.insert(key, val); // inserts key value pair to map
+map.remove(key); // removes value stored at key
+map.delete(key); //removes value stored at key
+map.update(key, val); // updates a key to specific val
+map.set(key, val); // sets a key to val, even if not in map
+map.size(); // returns size of map
+map.hasKey(key); // returns bool if key in map
 ```
 
 ###LinkedList
@@ -223,12 +263,11 @@ gulp watch
 
 ##Backlog
 
-* Trie
+* set up better documentation system
 * prefixTree
 * b-tree
 * red-black tree
 * priority queue
-* Intersection, Difference, and Union methods for sets
 * Breadth-first, pre-, in, post-order dpeth-first traversal tree
 * Graph traversals
 * Find and AddAfter for Linked List
@@ -273,3 +312,4 @@ appropriate spec file in the tests directory
 * 0.10.2 Add Coveralls and Istanbul for Code Coverage (Thanks to Andrew Zey)
 * 1.0.0 Clean up and add auto-rebalancing to BST (Thanks to smk1992 and JonathanWarrick)
 * 1.0.1 Update README.md backlog (Thanks to Peter Hayes)
+* 1.1.0 Add setStrict and map (nickb1080), update set methods (Peter Hayes), add tries (jhrdoty)
