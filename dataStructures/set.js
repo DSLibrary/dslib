@@ -1,7 +1,14 @@
 'use strict';
 
-var Set = function(){
+var Set = function( str ) {
   this._storage = Object.create(null);
+  if ( typeof str === "function" ) {
+    this.stringifyObj = str;
+  } else if ( typeof str === "string" ) {
+    this.stringifyObj = function ( obj ) {
+      return obj[str];
+    };
+  }
 };
 
 Set.fromArray = function(input) {
@@ -10,20 +17,22 @@ Set.fromArray = function(input) {
   return set;
 };
 
-Set.prototype.add = function(value){
-  this._storage[JSON.stringify(value)] = true;
+Set.prototype.stringifyObj = JSON.stringify;
+
+Set.prototype.add = function(value) {
+  this._storage[this.stringifyObj(value)] = true;
 };
 
-Set.prototype.remove = Set.prototype.delete = function(value){
-  delete this._storage[JSON.stringify(value)];
+Set.prototype.remove = Set.prototype.delete = function(value) {
+  delete this._storage[this.stringifyObj(value)];
 };
 
-Set.prototype.contains = Set.prototype.has = function(value){
-  return this._storage[JSON.stringify(value)] || false;
+Set.prototype.contains = Set.prototype.has = function(value) {
+  return this._storage[this.stringifyObj(value)] || false;
 };
 
 // Clears the set of all values.
-Set.prototype.clear = function(){
+Set.prototype.clear = function() {
   this._storage = Object.create(null);
 };
 
@@ -33,7 +42,7 @@ Set.prototype.toArray = function() {
 };
 
 // Returns the count of items in this set.
-Set.prototype.size = function(){
+Set.prototype.size = function() {
   return Object.keys(this._storage).length;
 };
 

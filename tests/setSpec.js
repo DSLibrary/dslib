@@ -21,6 +21,28 @@ describe('Set', function(){
     (typeof Set).should.equal('function');
   });
 
+  // directly testing the private state of _storage is the only way to check this
+  // and it's important that we know it's working correctly
+  it('constructor should accept a stringify function', function () {
+    var set = new Set(Function.call.bind({}.toString));
+    set.add([]);
+    set.add({});
+    set._storage["[object Array]"].should.equal(true);
+    set._storage["[object Object]"].should.equal(true);
+    set.has([]).should.equal(true);
+    set.has({}).should.equal(true);
+  });
+
+  it('constructor should accept a property name for stringify', function () {
+    var set = new Set('id');
+    set.add({ id: 12345, name: 'Jane' });
+    set.add({ id: 67890, name: 'John' });
+    set._storage[12345].should.equal(true);
+    set._storage[67890].should.equal(true);
+    set.has({ id: 12345 }).should.equal(true);
+    set.has({ id: 67890 }).should.equal(true);
+  });
+
   it('should have an add method', function(){
     (typeof exSet.add).should.equal('function');
     var size = exSet.size();
