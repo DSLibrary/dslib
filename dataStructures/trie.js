@@ -24,4 +24,29 @@ Trie.prototype.contains = function(key){
   return this.lookup(key) !== undefined;
 };
 
+Trie.prototype.stringsFromPrefix = function(prefix){
+  var strings = [];
+
+  (function rec(prefix, curr, node){
+    if (prefix === '' && node.value !== undefined) strings.push(curr);
+    var keys = Object.keys(node.children);
+    keys.forEach(function(key){
+      if(prefix === '' || prefix[0] === key) rec(prefix.slice(1), curr+key, node.children[key]);
+    });
+  })(prefix, '', this);
+
+  return strings;
+};
+
+var trie = new Trie();
+trie.insert('hello');
+trie.insert('hey');
+trie.insert('blue');
+console.log(trie.stringsFromPrefix('he'));
+console.log(trie.stringsFromPrefix('hell'));
+console.log(trie.stringsFromPrefix('b'));
+console.log(trie.stringsFromPrefix('be'));
+
+
+
 module.exports = Trie;
