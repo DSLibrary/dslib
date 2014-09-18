@@ -38,15 +38,4 @@ Trie.prototype.stringsFromPrefix = function(prefix){
   return strings;
 };
 
-var trie = new Trie();
-trie.insert('hello');
-trie.insert('hey');
-trie.insert('blue');
-console.log(trie.stringsFromPrefix('he'));
-console.log(trie.stringsFromPrefix('hell'));
-console.log(trie.stringsFromPrefix('b'));
-console.log(trie.stringsFromPrefix('be'));
-
-
-
 module.exports = Trie;
