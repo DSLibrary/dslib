@@ -198,8 +198,18 @@ var getNearestNeighbours = function(coords, k){
 
   });
 };
+```
 
+###Trie
+```
+var trie = new dslib.Trie();
 
+//methods
+trie.insert(key, val)       //inserts a key into the trie ( must be a string ) and an optional associated value
+trie.contains(key)          //returns true if a key is contained in the trie and false otherwise
+trie.lookup(key)            //returns the value associated with a key, returns null if key was inserted with no value, 
+                            //returns undefined if they key is not contained in the trie
+trie.stringsFromPrefix(str) //returns an array of all of the keys that have the given prefix
 
 ```
 
