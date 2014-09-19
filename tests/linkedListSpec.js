@@ -57,6 +57,19 @@ describe('LinkedList', function(){
     (!!exLinkedList.tail).should.equal(false);
   });
 
+  it('should throw an exception when list is empty', function(){
+    var threwException = false;
+    try {
+      exLinkedList.removeHead();
+    }
+    catch (err) {
+      err.message.should.equal("Cannot remove head of empty list");
+      threwException = true;
+    }
+    threwException.should.equal(true);
+
+  });
+
   it('should have a contains method', function(){
     (typeof exLinkedList.contains).should.equal('function');
     exLinkedList.addToTail(1);

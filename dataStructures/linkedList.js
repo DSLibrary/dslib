@@ -31,13 +31,18 @@ LinkedList.prototype.addToTail = function(value){
 };
 
 LinkedList.prototype.removeHead = function(){
-  this._size--;
-  var removed = this.head;
-  if(this.head === this.tail){
-    this.tail = null;
+  if (this._size !== 0) {
+    this._size--;
+    var removed = this.head;
+    if(this.head === this.tail){
+      this.tail = null;
+    }
+    this.head = this.head.next;
+    return removed.value;
+  } else {
+    // not clear from README what to do when list is empty
+    throw new Error("Cannot remove head of empty list");
   }
-  this.head = this.head.next;
-  return removed.value;
 };
 
 LinkedList.prototype.contains = function(value){

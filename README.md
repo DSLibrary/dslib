@@ -46,7 +46,7 @@ set.remove(item); //removes an item from the set
 set.delete(item); // removes an item from the set, same as remove
 set.contains(item) // returns a boolean if item is in a set
 set.has(item) // returns a boolean if item is in set, same as contains
-set.clear() // emptys the set
+set.clear() // empties the set
 set.size() // returns the number of items in the set
 Set.fromArray(array) // creates a new set from an array.
 set.toArray() // creates an array out of a set
