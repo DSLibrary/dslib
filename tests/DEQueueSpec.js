@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var DEQueue = require('../index.js').DEQueue;
+var DEQueue = require('../dataStructures/DEQueue.js');
 var should = require('chai').should();
 
 
@@ -13,37 +13,38 @@ describe('DEQueue', function(){
   });
 
   it('should have an addFront method', function(){
-    (typeof exQueue.addFront).should.equal('function');
-    exQueue.addFront(1);
-    exQueue.addFront(2);
+    (typeof exDEQueue.addFront).should.equal('function');
+    exDEQueue.addFront(1);
+    exDEQueue.addFront(2);
   });
 
   it('should have an addRear method', function(){
-    (typeof exQueue.addRear).should.equal('function');
-    exQueue.addRear(1);
-    exQueue.addRear(2);
+    (typeof exDEQueue.addRear).should.equal('function');
+    exDEQueue.addRear(1);
+    exDEQueue.addRear(2);
   });
 
   it('should have a removeFront method', function(){
-    (typeof exQueue.removeFront).should.equal('function');
-    exQueue.removeFront(1);
-    exQueue.removeFront(2);
+    (typeof exDEQueue.removeFront).should.equal('function');
+    exDEQueue.removeFront(1);
+    exDEQueue.removeFront(2);
   });
 
   it('should have a removeRear method', function(){
-    (typeof exQueue.removeRear).should.equal('function');
-    exQueue.removeRear(1);
-    exQueue.removeRear(2);
+    (typeof exDEQueue.removeRear).should.equal('function');
+    exDEQueue.removeRear(1);
+    exDEQueue.removeRear(2);
   });
 
   it('should have an isEmpty method', function(){
-    (typeof exQueue.isEmpty).should.equal('function');
-    exQueue.isEmpty(1);
-    exQueue.isEmpty(2);
+    (typeof exDEQueue.isEmpty).should.equal('function');
+    exDEQueue.isEmpty(1);
+    exDEQueue.isEmpty(2);
   });
 
   it('should have a functioning size method', function(){
-    (typeof exQueue.size).should.equal('function');
-    (exQueue.size()).should.equal(1);
+    (typeof exDEQueue.size).should.equal('function');
+    exDEQueue.addFront(1);
+    (exDEQueue.size()).should.equal(1);
   });
 });
