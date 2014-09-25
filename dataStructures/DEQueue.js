@@ -1,28 +1,30 @@
-var Deque = function() {
+'use strict';
+
+var DEQueue = function() {
   this.storage = [];
 };
 
-Deque.prototype.addFront = function (value) {
+DEQueue.prototype.addFront = function (value) {
   this.storage.unshift(value);
 };
 
-Deque.prototype.addRear = function (value) {
+DEQueue.prototype.addRear = function (value) {
   this.storage.push(value);
 };
 
-Deque.prototype.removeFront = function () {
+DEQueue.prototype.removeFront = function () {
   if (!this.isEmpty()) {
     return this.storage.shift();
   }
 };
 
-Deque.prototype.removeRear = function () {
+DEQueue.prototype.removeRear = function () {
   if (!this.isEmpty()) {
     return this.storage.pop();
   }
 };
 
-Deque.prototype.isEmpty = function () {
+DEQueue.prototype.isEmpty = function () {
   if (this.storage.length === 0) {
     return true;
   } else {
@@ -30,6 +32,8 @@ Deque.prototype.isEmpty = function () {
   }
 };
 
-Deque.prototype.size = function () {
+DEQueue.prototype.size = function () {
   return this.storage.length;
 };
+
+module.exports = DEQueue;
