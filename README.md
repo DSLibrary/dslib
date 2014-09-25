@@ -56,7 +56,7 @@ set.difference(args) // creates a new set from an existing set, removing args fr
 set.intersection(args) // create a set which is an intersection of the set and its arguments.
 ```
 
-###setStict
+###setStrict
 
 ```
 /* a strict set should be used as an alternative to set when
