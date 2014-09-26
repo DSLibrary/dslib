@@ -45,13 +45,13 @@ BinarySearchTree.prototype.breadthFirstLog = function(callback){
   var prev = [this];
   var mappedArray = [this];
   var row = [];
-  while ( prev.length ) {
-    for ( var i = 0; i < prev.length; i++ ) {
+  while (prev.length) {
+    for (var i = 0; i < prev.length; i++) {
       row = row
-        .concat( prev[i].left || [] )
-        .concat( prev[i].right || [] );
+        .concat(prev[i].left || [])
+        .concat(prev[i].right || []);
     }
-    mappedArray = mappedArray.concat( row );
+    mappedArray = mappedArray.concat(row);
     prev = row;
     row = [];
   }
