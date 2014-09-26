@@ -15,12 +15,16 @@ DEQueue.prototype.addRear = function (value) {
 DEQueue.prototype.removeFront = function () {
   if (!this.isEmpty()) {
     return this.storage.shift();
+  } else {
+    return undefined
   }
 };
 
 DEQueue.prototype.removeRear = function () {
   if (!this.isEmpty()) {
     return this.storage.pop();
+  } else {
+    return undefined
   }
 };
 

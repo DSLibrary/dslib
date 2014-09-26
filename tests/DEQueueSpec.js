@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var DEQueue = require('../index.js').DEQueue;
+var DEQueue = require('/Users/forrestbthomas/Documents/contributions/dslib/dataStructures/DEQueue.js');
 var should = require('chai').should();
 
 
@@ -28,11 +28,15 @@ describe('DEQueue', function(){
     exDEQueue.addFront(3);
     exDEQueue.addFront(2);
     exDEQueue.addFront(1);
-    (typeof exDEQueue.removeFront()).should.equal(1);
+    (exDEQueue.removeFront()).should.equal(1);
+    exDEQueue.removeFront(3);
+    exDEQueue.removeFront(2);
+    exDEQueue.removeFront(1);
   });
 
   it('should not remove a value, if the DEQueue is empty', function(){
-    (exDEQueue.removeFront()).should.equal(undefined);
+    var none = exDEQueue.removeFront();
+    should.not.exist(none);
   });
 
   it('should have a removeRear method', function(){
@@ -43,11 +47,15 @@ describe('DEQueue', function(){
     exDEQueue.addFront(3);
     exDEQueue.addFront(2);
     exDEQueue.addFront(1);
-    (typeof exDEQueue.removeRear()).should.equal(3);
+    (exDEQueue.removeRear()).should.equal(3);
+    exDEQueue.removeFront(3);
+    exDEQueue.removeFront(2);
+    exDEQueue.removeFront(1);
   });
 
   it('should not remove a value, if the DEQueue is empty', function(){
-    (exDEQueue.removeRear()).should.equal(undefined);
+    var none = exDEQueue.removeRear();
+    should.not.exist(none);
   });
 
   it('should have an isEmpty method', function(){
