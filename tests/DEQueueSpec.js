@@ -1,6 +1,6 @@
 'use strict';
 //requirements
-var DEQueue = require('/Users/forrestbthomas/Documents/contributions/dslib/dataStructures/DEQueue.js');
+var DEQueue = require('../index.js').DEQueue;
 var should = require('chai').should();
 
 
