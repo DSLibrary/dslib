@@ -1,11 +1,11 @@
 {
   "name": "dslib",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A library of useful data structures in Javascript",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "gulp coveralls"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "gulp": "^3.8.8",
     "gulp-istanbul": "^0.3.0",
     "gulp-mocha": "^1.0.0",
+    "gulp-coveralls": "^0.1.3",
     "mocha": "^1.21.4"
   }
 }
