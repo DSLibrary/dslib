@@ -29,4 +29,19 @@ describe('Stack', function(){
     (exStack.size()).should.equal(0);
   });
 
+  it('should have a peek method', function(){
+    (typeof(exStack.peek)).should.equal('function');
+    exStack.push(25);
+    (exStack.size()).should.equal(1);
+    (exStack.peek()).should.equal(25);
+    (exStack.size()).should.equal(1);
+  });
+
+  it('should have an isEmpty method', function(){
+    (typeof(exStack.isEmpty)).should.equal('function');
+    (exStack.isEmpty()).should.equal(false);
+    exStack.pop();
+    (exStack.isEmpty()).should.equal(true);
+  });
+
 });

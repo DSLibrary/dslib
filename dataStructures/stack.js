@@ -18,4 +18,12 @@ Stack.prototype.size = function(){
   return this._size;
 };
 
+Stack.prototype.peek = function(){
+  return this._storage[this._storage.length - 1];
+};
+
+Stack.prototype.isEmpty = function(){
+  return (this._size === 0) ? true : false;
+};
+
 module.exports = Stack;
