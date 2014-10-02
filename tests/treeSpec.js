@@ -16,6 +16,11 @@ describe('Tree', function(){
     (typeof Tree).should.equal('function');
   });
 
+  it('should create a Tree with value "null" when called without an argument', function(){
+    var nullTree = new Tree();
+    should.equal(nullTree.value, null);
+  });
+
   it('should have children', function(){
     (Array.isArray(exTree.children)).should.equal(true);
   });
@@ -23,6 +28,10 @@ describe('Tree', function(){
 
   it('should have an addChild method', function(){
     (typeof exTree.addChild).should.equal('function');
+    exTree.addChild(1);
+    (exTree.children[0].value).should.equal(1);
+    exTree.addChild({prop: 'test'});
+    (exTree.children[1].value.prop).should.equal('test');
   });
 
   it('should have an contains method', function(){
@@ -52,6 +61,8 @@ describe('Tree', function(){
     exTree.removeChild(3);
     (exTree.contains(3)).should.equal(false);
     (exTree.contains(4)).should.equal(true);
+    exTree.removeChild(5);
+    (exTree.contains(5)).should.equal(false);
   });
 
   it('should have a removeFromParent method', function(){
@@ -81,5 +92,5 @@ describe('Tree', function(){
     (exTree.contains(2)).should.equal(true);
     (exTree.contains(5)).should.equal(false);
   });
-  
+
 });

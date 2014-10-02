@@ -1,6 +1,6 @@
 {
   "name": "dslib",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A library of useful data structures in Javascript",
   "main": "index.js",
   "scripts": {

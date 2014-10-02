@@ -22,7 +22,9 @@ var stack = new dslib.Stack();
 //methods
 stack.push(item); //adds an item to top of stack
 stack.pop(); // removes and returns last item added to stack
-stack.size() // returns size of stack
+stack.size(); // returns size of stack
+stack.peek(); // returns last item added to stack without removing it
+stack.isEmpty(); // returns true if stack is empty, false if not
 ```
 
 ###Queue
@@ -314,3 +316,5 @@ appropriate spec file in the tests directory
 * 1.0.1 Update README.md backlog (Thanks to Peter Hayes)
 * 1.1.0 Add setStrict and map (nickb1080), update set methods (Peter Hayes), add tries (jhrdoty)
 * 1.1.1 Add gulp-coveralls (andrewzey)
+* 1.2.0 Add stack methods (andrewzey)
+* 1.2.1 Modify Tree to accept any value (not just numbers) and increase test coverage to 100% (andrewzey)
