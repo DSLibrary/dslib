@@ -247,7 +247,7 @@ var trie = new dslib.Trie();
 //methods
 trie.insert(key, val)       //inserts a key into the trie ( must be a string ) and an optional associated value
 trie.contains(key)          //returns true if a key is contained in the trie and false otherwise
-trie.lookup(key)            //returns the value associated with a key, returns null if key was inserted with no value, 
+trie.lookup(key)            //returns the value associated with a key, returns null if key was inserted with no value,
                             //returns undefined if they key is not contained in the trie
 trie.stringsFromPrefix(str) //returns an array of all of the keys that have the given prefix
 
@@ -313,3 +313,4 @@ appropriate spec file in the tests directory
 * 1.0.0 Clean up and add auto-rebalancing to BST (Thanks to smk1992 and JonathanWarrick)
 * 1.0.1 Update README.md backlog (Thanks to Peter Hayes)
 * 1.1.0 Add setStrict and map (nickb1080), update set methods (Peter Hayes), add tries (jhrdoty)
+* 1.1.1 Add gulp-coveralls (andrewzey)
