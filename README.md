@@ -317,3 +317,4 @@ appropriate spec file in the tests directory
 * 1.1.0 Add setStrict and map (nickb1080), update set methods (Peter Hayes), add tries (jhrdoty)
 * 1.1.1 Add gulp-coveralls (andrewzey)
 * 1.2.0 Add stack methods (andrewzey)
+* 1.2.1 Modify Tree to accept any value (not just numbers) and increase test coverage to 100% (andrewzey)
