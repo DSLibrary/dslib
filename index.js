@@ -4,6 +4,11 @@ var fs = require( 'fs' ),
     components = fs.readdirSync( './dataStructures' ),
     dslib = {},
     i;
+    
+// '.DS_Store' was causing an error in piping
+if ( components[ 0 ] === '.DS_Store') {
+  components = components.slice(1);
+}
 
 // dynamically add all datastructures
 for ( i = 0; i < components.length; i++ ) {
