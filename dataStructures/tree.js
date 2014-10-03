@@ -3,18 +3,16 @@
 var Tree = function(value){
   this.parent =  null;
   this.children = [];
-  if(value){
-    this.value  = value;
-  }
+  this.value = value || null;
 };
 
 Tree.prototype.addChild = function(value){
   var child;
-  if(typeof value === 'number'){
-    child = new Tree(value);    
-  }
-  else if(typeof value === 'object'){
+
+  if(value.constructor === Tree) {
     child = value;
+  } else {
+    child = new Tree(value);
   }
   child.parent = this;
   this.children.push(child);
@@ -23,7 +21,7 @@ Tree.prototype.addChild = function(value){
 Tree.prototype.contains = function(value){
   if(this.value === value){
     return true;
-  } 
+  }
   for(var i = 0; i < this.children.length; i++){
     if(this.children[i].contains(value)){
       return true;

@@ -22,7 +22,9 @@ var stack = new dslib.Stack();
 //methods
 stack.push(item); //adds an item to top of stack
 stack.pop(); // removes and returns last item added to stack
-stack.size() // returns size of stack
+stack.size(); // returns size of stack
+stack.peek(); // returns last item added to stack without removing it
+stack.isEmpty(); // returns true if stack is empty, false if not
 ```
 
 ###Queue
@@ -46,7 +48,7 @@ set.remove(item); //removes an item from the set
 set.delete(item); // removes an item from the set, same as remove
 set.contains(item) // returns a boolean if item is in a set
 set.has(item) // returns a boolean if item is in set, same as contains
-set.clear() // emptys the set
+set.clear() // empties the set
 set.size() // returns the number of items in the set
 Set.fromArray(array) // creates a new set from an array.
 set.toArray() // creates an array out of a set
@@ -56,7 +58,7 @@ set.difference(args) // creates a new set from an existing set, removing args fr
 set.intersection(args) // create a set which is an intersection of the set and its arguments.
 ```
 
-###setStict
+###setStrict
 
 ```
 /* a strict set should be used as an alternative to set when
@@ -247,7 +249,7 @@ var trie = new dslib.Trie();
 //methods
 trie.insert(key, val)       //inserts a key into the trie ( must be a string ) and an optional associated value
 trie.contains(key)          //returns true if a key is contained in the trie and false otherwise
-trie.lookup(key)            //returns the value associated with a key, returns null if key was inserted with no value, 
+trie.lookup(key)            //returns the value associated with a key, returns null if key was inserted with no value,
                             //returns undefined if they key is not contained in the trie
 trie.stringsFromPrefix(str) //returns an array of all of the keys that have the given prefix
 
@@ -313,3 +315,6 @@ appropriate spec file in the tests directory
 * 1.0.0 Clean up and add auto-rebalancing to BST (Thanks to smk1992 and JonathanWarrick)
 * 1.0.1 Update README.md backlog (Thanks to Peter Hayes)
 * 1.1.0 Add setStrict and map (nickb1080), update set methods (Peter Hayes), add tries (jhrdoty)
+* 1.1.1 Add gulp-coveralls (andrewzey)
+* 1.2.0 Add stack methods (andrewzey)
+* 1.2.1 Modify Tree to accept any value (not just numbers) and increase test coverage to 100% (andrewzey)

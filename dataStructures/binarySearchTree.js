@@ -42,19 +42,21 @@ BinarySearchTree.prototype.depthFirstLog = function(callback){
 };
 
 BinarySearchTree.prototype.breadthFirstLog = function(callback){
-  var mappedArray = [];
-  var map = function(node){
-    if(mappedArray.length === 0){
-      mappedArray.push(node);
+  var prev = [this];
+  var mappedArray = [this];
+  var row = [];
+  while (prev.length) {
+    for (var i = 0; i < prev.length; i++) {
+      row = row
+        .concat(prev[i].left || [])
+        .concat(prev[i].right || []);
     }
-    if(node.left !== null){mappedArray.push(node.left);}
-    if(node.right !== null){mappedArray.push(node.right);}
-    if(node.left !== null){map(node.left);}
-    if(node.right !== null){map(node.right);}
-  };
-  map(this);
-  for(var i = 0; i < mappedArray.length; i++){
-    callback(mappedArray[i]);
+    mappedArray = mappedArray.concat(row);
+    prev = row;
+    row = [];
+  }
+  for(var j = 0; j < mappedArray.length; j++){
+    callback(mappedArray[j]);
   }
 };
 
