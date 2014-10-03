@@ -1,0 +1,33 @@
+{
+  "name": "dslib",
+  "main": "dist/dslib.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/dslibrary/dslib",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dslibrary/dslib.git"
+  },
+  "authors": [
+    "Kia Fathi <kiafathi@me.com> (http://kiafathi.com/)",
+    "and others https://github.com/dslibrary/dslib/graphs/contributors"
+  ],
+  "description": "Data structures in JavaScript",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "data",
+    "structures",
+    "algorithms"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ]
+}
