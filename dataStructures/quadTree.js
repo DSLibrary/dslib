@@ -1,10 +1,10 @@
 'use strict';
 
-/* 
- * This is an implementation of a Point Quadtree which acts as an adaptation of a binary 
- * tree used to represent two-dimensional point data. The center of the quadtree and 
- * each sub-quadtree is always on a point. The tree shapes depends on the order the 
- * data is inserted. This implementation is often very efficient in comparing two-dimensional, 
+/*
+ * This is an implementation of a Point Quadtree which acts as an adaptation of a binary
+ * tree used to represent two-dimensional point data. The center of the quadtree and
+ * each sub-quadtree is always on a point. The tree shapes depends on the order the
+ * data is inserted. This implementation is often very efficient in comparing two-dimensional,
  * ordered data points, usually operating in logarithmic (O(log n)) time
  *
  * Please use the provided Box and Point helper classes when using this quadtree.
@@ -13,8 +13,12 @@
  * https://github.com/peterkhayes/HR-Algorithms-Meetup/
  */
 
-var Quadtree = function(box) {
-  this.box = box;
+var Quadtree = function(minX, minY, maxX, maxY) {
+  if (arguments.length === 1) {
+    this.box = arguments[0];
+  } else {
+    this.box = new Box(minX, minY, maxX, maxY);
+  }
   this.point = null;
   this.SW = null;
   this.SE = null;
@@ -23,7 +27,14 @@ var Quadtree = function(box) {
 };
 
 // Takes a Point as an input and inserts into the Quadtree.
-Quadtree.prototype.insert = function(point) {
+Quadtree.prototype.insert = function(x, y) {
+  var point;
+  // argument shifting
+  if (arguments.length === 1) {
+    point = arguments[0];
+  } else {
+    point = new Point(x, y);
+  }
   var currentTree = this;
   if(!currentTree.point) {
     currentTree.point = point;
@@ -42,7 +53,13 @@ Quadtree.prototype.insert = function(point) {
 };
 
 // Takes a Box as an input and returns an array of all Points within that Box.
-Quadtree.prototype.retrieve = function(searchBox) {
+Quadtree.prototype.retrieve = function(minX, minY, maxX, maxY) {
+  var searchBox;
+  if (arguments.length === 1) {
+    searchBox = arguments[0];
+  } else {
+    searchBox = new Box(minX, minY, maxX, maxY);
+  }
   var foundPoints = [];
   if(searchBox.contains(this.point)) {
     foundPoints.push(this.point);
@@ -66,15 +83,23 @@ Quadtree.prototype.retrieve = function(searchBox) {
 
 // Takes a Point as the target input and an optional number as the initialSearchRadius input.
 // Returns the nearest Point to the target Point.
-Quadtree.prototype.findNearestPointTo = function(target, initialSearchRadius) {
+Quadtree.prototype.findNearestPointTo = function(x, y, initialSearchRadius) {
+  var target;
   if(!this.point) {
     return null;
   }
+  // argument shifting
+  if (typeof arguments[0] === "number") {
+    target = new Point(x, y);
+  } else {
+    target = arguments[0];
+  }
+
   var findNearestPoints = function(quadtree) {
     var initialSearchRadius = initialSearchRadius || 1;
-    var searchBox = new Box(target.x - initialSearchRadius, 
-                            target.y - initialSearchRadius, 
-                            target.x + initialSearchRadius, 
+    var searchBox = new Box(target.x - initialSearchRadius,
+                            target.y - initialSearchRadius,
+                            target.x + initialSearchRadius,
                             target.y + initialSearchRadius);
 
     var nearestPoints = quadtree.retrieve(searchBox);
@@ -227,6 +252,4 @@ Point.prototype.distanceTo = function(point) {
 };
 
 
-module.exports.Quadtree = Quadtree;
-module.exports.Box = Box;
-module.exports.Point = Point;
+module.exports = Quadtree;

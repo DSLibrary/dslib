@@ -39,8 +39,6 @@
 //   }
 // }
 
-var qt = require('./dataStructures/quadTree');
-
 module.exports = {
   BinarySearchTree: require('./dataStructures/binarySearchTree'),
   BloomFilter: require('./dataStructures/bloomFilter'),
@@ -50,9 +48,7 @@ module.exports = {
   LinkedList: require('./dataStructures/linkedList'),
   Map: require('./dataStructures/map'),
   nTree: require('./dataStructures/n-tree'),
-  Quadtree: qt.Quadtree,
-  Box: qt.Box,
-  Point: qt.Point,
+  Quadtree: require('./datastructures/quadTree'),
   Queue: require('./dataStructures/queue'),
   Set: require('./dataStructures/set'),
   SetStrict: require('./dataStructures/setStrict'),
