@@ -13,7 +13,11 @@
  * https://github.com/peterkhayes/HR-Algorithms-Meetup/
  */
 
+// Takes coordinate box and creates a new Quadtree.
+// Alternately, accepts a Box instance as only argument
 var Quadtree = function(minX, minY, maxX, maxY) {
+
+  // argument shifting
   if (arguments.length === 1) {
     this.box = arguments[0];
   } else {
@@ -26,9 +30,11 @@ var Quadtree = function(minX, minY, maxX, maxY) {
   this.NE = null;
 };
 
-// Takes a Point as an input and inserts into the Quadtree.
+// Takes x and y coordinates as input and inserts point into the Quadtree.
+// Alternately, accepts a Point instance as only argument.
 Quadtree.prototype.insert = function(x, y) {
   var point;
+
   // argument shifting
   if (arguments.length === 1) {
     point = arguments[0];
@@ -52,14 +58,18 @@ Quadtree.prototype.insert = function(x, y) {
   currentTree[quadrant].point = point;
 };
 
-// Takes a Box as an input and returns an array of all Points within that Box.
+// Takes 4 coordinates and returns an array of all Points within that box
+// Alternately accepts a Box instance as it's only argument.
 Quadtree.prototype.retrieve = function(minX, minY, maxX, maxY) {
   var searchBox;
+
+  // arguemnt shifting
   if (arguments.length === 1) {
     searchBox = arguments[0];
   } else {
     searchBox = new Box(minX, minY, maxX, maxY);
   }
+
   var foundPoints = [];
   if(searchBox.contains(this.point)) {
     foundPoints.push(this.point);
@@ -81,18 +91,21 @@ Quadtree.prototype.retrieve = function(minX, minY, maxX, maxY) {
   return foundPoints;
 };
 
-// Takes a Point as the target input and an optional number as the initialSearchRadius input.
+// Takes a Point as the target point and an optional number as the initialSearchRadius input.
+// Alternately, accepts a Point as first argument and a number in the second argument as initialSearchRadius.
 // Returns the nearest Point to the target Point.
 Quadtree.prototype.findNearestPointTo = function(x, y, initialSearchRadius) {
   var target;
   if(!this.point) {
     return null;
   }
+
   // argument shifting
   if (typeof arguments[0] === "number") {
     target = new Point(x, y);
   } else {
     target = arguments[0];
+    initialSearchRadius = arguments[1];
   }
 
   var findNearestPoints = function(quadtree) {
