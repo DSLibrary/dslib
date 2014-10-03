@@ -39,7 +39,6 @@
 //   }
 // }
 
-var dslib = {};
 var qt = require('./dataStructures/quadTree');
 
 module.exports = {
