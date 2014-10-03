@@ -50,12 +50,13 @@ dslib.Heap = require('./dataStructures/heap');
 dslib.LinkedList = require('./dataStructures/LinkedList');
 dslib.Map = require('./dataStructures/map');
 dslib.nTree = require('./dataStructures/n-tree');
-dslib.QuadTree = qt.QuadTree;
+dslib.Quadtree = qt.Quadtree;
 dslib.Box = qt.Box;
 dslib.Point = qt.Point;
 dslib.Queue = require('./dataStructures/queue');
 dslib.Set = require('./dataStructures/set');
 dslib.SetStrict = require('./dataStructures/setStrict');
+dslib.Stack = require('./dataStructures/stack');
 dslib.Tree = require('./dataStructures/tree');
 dslib.Trie = require('./dataStructures/trie');
 

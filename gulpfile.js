@@ -2,7 +2,6 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
-var uglify = require('gulp-uglify')
 
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
