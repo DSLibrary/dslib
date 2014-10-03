@@ -39,26 +39,24 @@
 //   }
 // }
 
-var dslib = {};
 var qt = require('./dataStructures/quadTree');
 
-dslib.BinarySearchTree = require('./dataStructures/binarySearchTree');
-dslib.BloomFilter = require('./dataStructures/bloomFilter');
-dslib.DoublyLinkedList = require('./dataStructures/doublyLinkedList');
-dslib.Graph = require('./dataStructures/graph');
-dslib.Heap = require('./dataStructures/heap');
-dslib.LinkedList = require('./dataStructures/linkedList');
-dslib.Map = require('./dataStructures/map');
-dslib.nTree = require('./dataStructures/n-tree');
-dslib.Quadtree = qt.Quadtree;
-dslib.Box = qt.Box;
-dslib.Point = qt.Point;
-dslib.Queue = require('./dataStructures/queue');
-dslib.Set = require('./dataStructures/set');
-dslib.SetStrict = require('./dataStructures/setStrict');
-dslib.Stack = require('./dataStructures/stack');
-dslib.Tree = require('./dataStructures/tree');
-dslib.Trie = require('./dataStructures/trie');
-
-
-module.exports = dslib;
+module.exports = {
+  BinarySearchTree: require('./dataStructures/binarySearchTree'),
+  BloomFilter: require('./dataStructures/bloomFilter'),
+  DoublyLinkedList: require('./dataStructures/doublyLinkedList'),
+  Graph: require('./dataStructures/graph'),
+  Heap: require('./dataStructures/heap'),
+  LinkedList: require('./dataStructures/linkedList'),
+  Map: require('./dataStructures/map'),
+  nTree: require('./dataStructures/n-tree'),
+  Quadtree: qt.Quadtree,
+  Box: qt.Box,
+  Point: qt.Point,
+  Queue: require('./dataStructures/queue'),
+  Set: require('./dataStructures/set'),
+  SetStrict: require('./dataStructures/setStrict'),
+  Stack: require('./dataStructures/stack'),
+  Tree: require('./dataStructures/tree'),
+  Trie: require('./dataStructures/trie')
+};
