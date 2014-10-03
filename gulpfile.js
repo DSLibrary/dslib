@@ -2,6 +2,10 @@
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
+var uglify = require('gulp-uglify')
+
+var source = require('vinyl-source-stream');
+var browserify = require('browserify');
 
 gulp.task('test', function(cb){
   gulp.src([
@@ -26,4 +30,17 @@ gulp.task('watch', function(){
   gulp.watch('./tests/**', ['test']);
 });
 
+gulp.task('browserify', function () {
+  return browserify({
+    entries: "./index.js",
+    standalone: "dslib"
+  })
+    .bundle()
+    .pipe(source('dslib.js'))
+    .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('default', ['watch']);
+
+// add uglifyjs compression here when we figure that out
+gulp.task('dist', ['browserify']);
