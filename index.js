@@ -48,7 +48,7 @@ module.exports = {
   LinkedList: require('./dataStructures/linkedList'),
   Map: require('./dataStructures/map'),
   nTree: require('./dataStructures/n-tree'),
-  Quadtree: require('./datastructures/quadTree'),
+  Quadtree: require('./dataStructures/quadTree'),
   Queue: require('./dataStructures/queue'),
   Set: require('./dataStructures/set'),
   SetStrict: require('./dataStructures/setStrict'),
