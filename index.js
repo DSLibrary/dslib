@@ -4,8 +4,7 @@
 //     components = fs.readdirSync( './dataStructures' ),
 //     dslib = {},
 //     i;
-
-// // dynamically add all datastructures
+// // dynamically add all dataStructures
 // for ( i = 0; i < components.length; i++ ) {
 //   var fileName = components[ i ].split( '.' )[0],
 //       temp,
@@ -42,6 +41,7 @@
 module.exports = {
   BinarySearchTree: require('./dataStructures/binarySearchTree'),
   BloomFilter: require('./dataStructures/bloomFilter'),
+  DEQueue: require('./dataStructures/DEQueue'),
   DoublyLinkedList: require('./dataStructures/doublyLinkedList'),
   Graph: require('./dataStructures/graph'),
   Heap: require('./dataStructures/heap'),
