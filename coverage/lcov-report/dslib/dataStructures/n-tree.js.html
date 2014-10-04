@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for dslib/dataStructures/n-tree.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("https://yui-s.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">dslib/dataStructures/n-tree.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">91.92% <small>(91 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">76.47% <small>(26 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">94.12% <small>(16 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">91.92% <small>(91 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">dslib/dataStructures/</a> &#187; n-tree.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">37446</span>
+<span class="cline-any cline-yes">99005</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">37446</span>
+<span class="cline-any cline-yes">37446</span>
+<span class="cline-any cline-yes">99005</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37446</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">25</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7782</span>
+<span class="cline-any cline-yes">7782</span>
+<span class="cline-any cline-yes">7782</span>
+<span class="cline-any cline-yes">7782</span>
+<span class="cline-any cline-yes">7782</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">778165</span>
+<span class="cline-any cline-yes">778165</span>
+<span class="cline-any cline-yes">1685594</span>
+<span class="cline-any cline-yes">1685594</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">778165</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">778150</span>
+<span class="cline-any cline-yes">778150</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">778150</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">740714</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">37684</span>
+<span class="cline-any cline-yes">37684</span>
+<span class="cline-any cline-yes">99449</span>
+<span class="cline-any cline-yes">49</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37635</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7155</span>
+<span class="cline-any cline-yes">36888</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31604</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7151</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24453</span>
+<span class="cline-any cline-yes">111285</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">691</span>
+<span class="cline-any cline-yes">11032</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6031</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">689</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5342</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37436</span>
+<span class="cline-any cline-yes">98980</span>
+<span class="cline-any cline-yes">49634</span>
+<span class="cline-any cline-yes">49634</span>
+<span class="cline-any cline-yes">49634</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">49346</span>
+<span class="cline-any cline-yes">49346</span>
+<span class="cline-any cline-yes">49346</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">98980</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">197147</span>
+<span class="cline-any cline-yes">189375</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-yes">68366</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-yes">7772</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//declare fomr helper functions for matrix operations
+var divide = function(array, divisor){
+  return array.map(function(element){
+    return element / divisor;
+  });
+};
+&nbsp;
+var subtract = function(subtractor, subtractee){
+  var result = new Array(subtractor.length);
+  for(var i=0; i&lt;subtractor.length; i++){
+    result[i] = subtractor[i] - subtractee[i];
+  }
+  return result;
+};
+&nbsp;
+var add = function(array1, array2){
+  var result = new Array(array1.length);
+  for(var i=0; i&lt;array1.length; i++){
+    result[i] = array1[i] + array2[i];
+  }
+  return result;
+};
+&nbsp;
+var getCentre = function(maxima, minima){
+  return add(minima, divide(subtract(maxima, minima), 2));
+};
+&nbsp;
+/*Tree class. Has neither values nor control over its coordinates*/
+var Tree = function(maxima, minima, parent, centre){
+  this.parent = parent;
+  this.maxima = maxima;
+  this.minima = minima;
+  this.centre = centre || getCentre(maxima, minima);
+  this.children = new Array(1 &lt;&lt; maxima.length);
+};
+&nbsp;
+/*Leaf class. Has value, assigned to specified coordinates*/
+var Leaf = function(parent, relativePosition){
+  this.parent = parent;
+  this.values = [];
+  this.getCentreAndRegion(relativePosition);
+};
+&nbsp;
+Tree.prototype.getRelativeVector = function(coords){
+  var result = 0;
+  for(var i=0, bit=1; i&lt;coords.length; i++){
+    result = coords[i] &gt;= this.centre[i] ? result | bit : result;
+    bit = bit &lt;&lt; 1;
+  }
+  return result;
+};
+&nbsp;
+Tree.prototype.insert = function(coords, value) {
+  //find out which child to insert into
+  var insertionVector = this.getRelativeVector(coords);
+  var childRef = this.children[insertionVector];
+&nbsp;
+  //if that child is empty, make a new leaf out of it
+  if(childRef === undefined){
+    this.children[insertionVector] = new Leaf(this, insertionVector);
+    this.children[insertionVector].insert(coords, value);
+  }
+  //else if that child is a branch or a leaf, recurse down
+  //to either insert or subdivide as appropriate
+  else{
+    this.children[insertionVector].insert(coords, value);
+  }
+};
+&nbsp;
+Tree.prototype.isWithin = Leaf.prototype.isWithin = function(maxima, minima) {
+  var result = true;
+  for(var i=0; i&lt;minima.length; i++){
+    if(this.minima[i] &gt; maxima[i] || this.maxima[i] &lt; minima[i]){
+      return false;
+    }
+  }
+  return true;
+};
+&nbsp;
+Tree.prototype.query = <span class="fstat-no" title="function not covered" >function(maxima, minima, result){</span>
+<span class="cstat-no" title="statement not covered" >  result = result || [];</span>
+<span class="cstat-no" title="statement not covered" >  for(var i=0; i&lt;this.children.length; i++){</span>
+<span class="cstat-no" title="statement not covered" >    if(this.children[i] &amp;&amp; this.children[i].isWithin(maxima, minima)){</span>
+<span class="cstat-no" title="statement not covered" >      if(!this.children[i].values){</span>
+        //recurse down for more children
+<span class="cstat-no" title="statement not covered" >        this.children[i].query(maxima, minima, result);</span>
+      }else{
+        //it's a leaf. Fetch all of it's children
+<span class="cstat-no" title="statement not covered" >        for(var j=0; j&lt;this.children[i].values.length; j++){</span>
+<span class="cstat-no" title="statement not covered" >          result.push(this.children[i].values[j]);</span>
+        }
+      }
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return result;</span>
+};
+&nbsp;
+Tree.prototype.each = function(maxima, minima, cb){
+  for(var i=0; i&lt;this.children.length; i++){
+    if(this.children[i] &amp;&amp; this.children[i].isWithin(maxima, minima)){
+      //if this is a tree
+      if(!this.children[i].values){
+        //recurse down for more children
+        this.children[i].each(maxima, minima, cb);
+      }else{
+        //it's a leaf. Fetch all of it's children
+        for(var j=0; j&lt;this.children[i].values.length; j++){
+          cb(this.children[i].values[j]);
+        }
+      }
+    }
+  }
+};
+&nbsp;
+Tree.prototype.eachLeaf = function(maxima, minima, cb){
+  for(var i=0; i&lt;this.children.length; i++){
+    if(this.children[i] &amp;&amp; this.children[i].isWithin(maxima, minima)){
+      //if this is a tree
+      if(!this.children[i].values){
+        //recurse down for more children
+        this.children[i].eachLeaf(maxima, minima, cb);
+      }else{
+        //it's a leaf. Fetch all of it's children
+        cb(this.children[i]);
+      }
+    }
+  }
+};
+&nbsp;
+Leaf.prototype.getCentreAndRegion =
+Tree.prototype.getCentreAndRegion = function(vector){
+  var maxima = this.parent.maxima;
+  var minima = this.parent.minima;
+  var parentCentre = this.parent.centre;
+&nbsp;
+  var radii = divide(subtract(maxima, parentCentre), 2);
+  
+  this.centre = new Array(maxima.length);
+  this.maxima = new Array(maxima.length);
+  this.minima = new Array(maxima.length);
+  this.vector = vector;
+&nbsp;
+  for(var i=0, bit=1; i&lt;maxima.length; i++){
+    if(vector &amp; bit){
+      this.centre[i] = parentCentre[i] + radii[i];
+      this.maxima[i] = maxima[i];
+      this.minima[i] = parentCentre[i];
+    }else{
+      this.centre[i] = parentCentre[i] - radii[i];
+      this.maxima[i] = parentCentre[i];
+      this.minima[i] = minima[i];
+    }
+    bit = bit &lt;&lt; 1;
+  }
+&nbsp;
+};
+&nbsp;
+Leaf.prototype.insert = function(coords, value) {
+  if(this.values.length &lt; this.limit){
+    this.values.push({
+      coords: coords,
+      value: value
+    });
+  }else{
+    this.subdivide(coords, value);
+  }
+};
+&nbsp;
+Leaf.prototype.subdivide = function(coords, value) {
+  var subdivision = new Tree(this.maxima, this.minima, this.parent, this.centre);
+  for(var i=0; i&lt;this.values.length; i++){
+    subdivision.insert(this.values[i].coords, this.values[i].value);
+  }
+  var self = this;
+  subdivision.insert(coords, value);
+  self.parent.children[self.vector] = subdivision;
+};
+&nbsp;
+module.exports = function(maxima, minima, limit){
+  var tree = new Tree(maxima, minima, null);
+  Leaf.prototype.limit = limit;
+  return tree;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 26 2014 15:21:02 GMT-0700 (PDT)</div>
+</div>
+
+<script src="../../prettify.js"></script>
+
+<script src="https://yui-s.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

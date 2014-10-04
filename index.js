@@ -4,7 +4,6 @@
 //     components = fs.readdirSync( './dataStructures' ),
 //     dslib = {},
 //     i;
-
 // // dynamically add all datastructures
 // for ( i = 0; i < components.length; i++ ) {
 //   var fileName = components[ i ].split( '.' )[0],
