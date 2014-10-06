@@ -162,7 +162,7 @@ var Box = function(minX, minY, maxX, maxY) {
 };
 
 Box.prototype.contains = function(point) {
-  if (!point) {
+  if (!(point instanceof Point)) {
     throw new Error('No point passed to Box.contains');
   }
   var inX = point.x >= this.minX && point.x <= this.maxX;
@@ -171,7 +171,7 @@ Box.prototype.contains = function(point) {
 };
 
 Box.prototype.overlaps = function(that) {
-  if (!that) {
+  if (!(that instanceof Box)) {
     throw new Error('No box passed to Box.overlaps');
   }
   var xOverlap = this.maxX >= that.minX && this.minX <= that.maxX;
@@ -218,7 +218,7 @@ Box.prototype.expand = function() {
 };
 
 Box.prototype.findQuadrantForPoint = function(point) {
-  if (!point) {
+  if (!(point instanceof Point)) {
     throw new Error('No point passed to Box.findQuadrantForPoint');
   }
   if (!this.contains(point)) {
@@ -247,7 +247,7 @@ var Point = function(x, y) {
 };
 
 Point.prototype.isIn = function(box) {
-  if (!box) {
+  if (!(box instanceof Box)) {
     throw new Error('No box passed to Point.isIn');
   }
   var inX = this.x >= box.minX && this.x <= box.maxX;
@@ -256,7 +256,7 @@ Point.prototype.isIn = function(box) {
 };
 
 Point.prototype.distanceTo = function(point) {
-  if (!point) {
+  if (!(point instanceof Point)) {
     throw new Error('No point passed to Point.distanceTo');
   }
   var dx = point.x - this.x;

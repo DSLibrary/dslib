@@ -194,7 +194,7 @@ describe("Quadtree", function() {
       quadtree.insert(5, 0);
       quadtree.insert(0, 5);
       quadtree.insert(5, 5);
-      var point = quadtree.findNearestPointTo(3, 2);
+      var point = quadtree.findNearestPointTo(new Point(3, 2));
       expectPoint(point, 5, 0);
     });
 
@@ -225,6 +225,8 @@ describe("Quadtree", function() {
     })
     it("stores a box class on quadtree instantion", function() {
       (quadtree.box).should.be.an.instanceof(Box);
+      (function(){new Box(10, 0, 0, 10)}).should.throw();
+      (function(){new Box(0, 10, 10, 0)}).should.throw();
     });
     it("has a contains method", function() {
       var point1 = new Point(0, 0);
@@ -237,6 +239,7 @@ describe("Quadtree", function() {
       (box.contains(point3)).should.be.false;
       (box.contains(point4)).should.be.false;
       (box.contains(point5)).should.be.true;
+      (function(){box.contains(0, 0)}).should.throw();
     });
     it("has an overlaps method", function() {
       var box1 = new Box(0, 0, 10, 10);
@@ -249,12 +252,14 @@ describe("Quadtree", function() {
       (box.overlaps(box3)).should.be.false;
       (box.overlaps(box4)).should.be.false;
       (box.overlaps(box5)).should.be.true;
+      (function(){box.overlaps(0, 0, 10, 10)}).should.throw();
     });
     it("has a getQuadrant method", function() {
       expectBox(box.getQuadrant('NE'), 0, 0, 20, 20);
       expectBox(box.getQuadrant('NW'), -20, 0, 0, 20);
       expectBox(box.getQuadrant('SW'), -20, -20, 0, 0);
       expectBox(box.getQuadrant('SE'), 0, -20, 20, 0);
+      (function(){box.getQuadrant('NA')}).should.throw();
     });
     it("has shrink and expand methods", function() {
       box.shrink();
@@ -272,16 +277,23 @@ describe("Quadtree", function() {
       var point2 = new Point(-13, 5);
       var point3 = new Point(-3, -20);
       var point4 = new Point(20, -20);
+      var point5 = new Point(30, 30);
       (box.findQuadrantForPoint(point1)).should.equal('NE');
       (box.findQuadrantForPoint(point2)).should.equal('NW');
       (box.findQuadrantForPoint(point3)).should.equal('SW');
       (box.findQuadrantForPoint(point4)).should.equal('SE');
+      (function(){box.findQuadrantForPoint(10, 10)}).should.throw();
+      (function(){box.findQuadrantForPoint(point5)}).should.throw();
     });
   });
   describe("should have a Point helper class", function() {
     beforeEach(function() {
       point = new Point(10, 10);
     })
+    it("stores a point class on quadtree insertion", function() {
+      quadtree.insert(new Point(0, 0));
+      (quadtree.point).should.be.an.instanceof(Point);
+    });
     it("has an isIn method", function() {
       var box1 = new Box(0, 0, 10, 10);
       var box2 = new Box(-100, -100, 100, 100);
@@ -291,6 +303,7 @@ describe("Quadtree", function() {
       (point.isIn(box2)).should.be.true;
       (point.isIn(box3)).should.be.false;
       (point.isIn(box4)).should.be.false;
+      (function(){point.isIn(-20, -20, 20, 20)}).should.throw();
     });
     it("has a distanceTo method", function() {
       var point1 = new Point(10, 10);
@@ -299,6 +312,7 @@ describe("Quadtree", function() {
       (point.distanceTo(point1)).should.equal(0);
       (point.distanceTo(point2)).should.equal(20);
       (point.distanceTo(point3)).should.equal(5);
+      (function(){point.distanceTo(20, 20)}).should.throw();
     });
   });
 });
