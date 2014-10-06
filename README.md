@@ -179,24 +179,15 @@ heap.deleteMin() //deletes a specific value from a heap
 heap.heapSort(array) //takes an array of numbers and returns a least to greatest numerically sorted array
 ```
 
-###QuadTree
+###Quadtree
 ```
-//necessary helper classes
-
-//create a box that with the designated min and max coordinates
-var box = new dslib.Box(minX, minY, maxX, maxY);
-
-//create a point with the designated x and y coordinates
-var point = new dslib.Point(x, y)
-
-//QuadTree class
-//create a point QuadTree of dimensions designated by box.
-var quadTree = new dslib.QuadTree(box);
+//create a QuadTree of specified dimensions
+var quadtree = new dslib.Quadtree(minX, minY, maxX, maxY);
 
 //methods
-quadTree.insert(point) //insert a point into the quad tree.
-quadTree.retrieve(box) //returns an array of all the points within a quadtree for a specific box
-quadTree.findNearestPointTo(point /*, optional initialSearchRadius */) //returns the nearest point to point argument
+quadtree.insert(x, y) //insert a point into the quadtree
+quadtree.retrieve(minX, minY, maxX, maxY) //returns an array containing all points within the specified dimensions
+quadtree.findNearestPointTo(x, y, /*, optional initialSearchRadius */) //returns the nearest point to point argument
 ```
 
 ###n-Tree
@@ -211,13 +202,13 @@ var nTree = new dslib.nTree([10, 20, 5 etc...], [0, -20, 0...], 4);
 
 nTree.insert([5, -5, 12], "{myValue: "fooBot"}"); //insert a point with the designated coordinates and an optional value
 
-quadTree.query([maxima], [minima]) //returns all points within given coordinates
+nTree.query([maxima], [minima]) //returns all points within given coordinates
 
 nTree.eachLeaf([maxima], [minima], function(leaf){
   console.log(leaf);
 }]) //iterate over each point in the tree within given range
 
-quadTree.each([maxima], [minima], function(leaf){
+nTree.each([maxima], [minima], function(leaf){
   console.log(leaf);
 }]) //iterate over each node in the tree within given range
 
