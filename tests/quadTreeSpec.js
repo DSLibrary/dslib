@@ -1,8 +1,8 @@
 'use strict';
 
 var Quadtree = require('../index.js').Quadtree;
-// var Box = require('../index.js').Box;
-// var Point = require('../index.js').Point;
+var Box = require('../dataStructures/quadTree.js').QuadtreeTestHelpers.Box;
+var Point = require('../dataStructures/quadTree.js').QuadtreeTestHelpers.Point;
 var should = require('chai').should();
 var expect = require('chai').expect();
 
@@ -155,13 +155,6 @@ describe("Quadtree", function() {
       var points = quadtree.retrieve(-5, -10, 10, 10);
       (points).should.have.length(75);
     });
-
-    // it("Works on large trees.  Properly searches 360000 points, finding 3000.", function() {
-    //   var startTime = Date.now();
-    //   var points = bigFilledQuadtree.retrieve(new Box(220, 280, 319, 309));
-    //   (points.length).should.equal(3000);
-    //   (Date.now() - startTime).should.be.below(300);
-    // });
   });
 
   describe("should have a findNearestPointTo method", function() {
@@ -171,7 +164,6 @@ describe("Quadtree", function() {
     });
 
     it("If quadtree contains only 1 point, (0, 0), finds that point, with a query of (0, 0).", function() {
-      console.log('here');
       quadtree.insert(0, 0);
       var point = quadtree.findNearestPointTo(0, 0);
       expectPoint(point, 0, 0);
@@ -253,8 +245,7 @@ var expectPoint = function(actual, expected) {
   if (typeof expected === "number") {
     expected = { x: arguments[1], y: arguments[2] };
   }
-  // can't do this any more :(
-  // (actual).should.be.an.instanceof(Point);
+  (actual).should.be.an.instanceof(Point);
   (Object.keys(actual)).should.have.length(2);
   (actual.x).should.equal(expected.x);
   (actual.y).should.equal(expected.y);

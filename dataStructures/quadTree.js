@@ -266,3 +266,7 @@ Point.prototype.distanceTo = function(point) {
 
 
 module.exports = Quadtree;
+module.exports.QuadtreeTestHelpers = {
+  Box: Box,
+  Point: Point
+};
