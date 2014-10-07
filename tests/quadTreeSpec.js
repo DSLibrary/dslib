@@ -1,8 +1,8 @@
 'use strict';
 
 var Quadtree = require('../index.js').Quadtree;
-// var Box = require('../index.js').Box;
-// var Point = require('../index.js').Point;
+var Box = require('../dataStructures/quadTree.js').QuadtreeTestHelpers.Box;
+var Point = require('../dataStructures/quadTree.js').QuadtreeTestHelpers.Point;
 var should = require('chai').should();
 var expect = require('chai').expect();
 
@@ -12,7 +12,7 @@ var expect = require('chai').expect();
  */
 
 describe("Quadtree", function() {
-  var quadtree, bigFilledQuadtree;
+  var quadtree, bigFilledQuadtree, box, point;
   before(function() {
     bigFilledQuadtree = new Quadtree(-10, -10, 510, 510);
     for (var x = 0; x <= 100; x++) {
@@ -155,13 +155,6 @@ describe("Quadtree", function() {
       var points = quadtree.retrieve(-5, -10, 10, 10);
       (points).should.have.length(75);
     });
-
-    // it("Works on large trees.  Properly searches 360000 points, finding 3000.", function() {
-    //   var startTime = Date.now();
-    //   var points = bigFilledQuadtree.retrieve(new Box(220, 280, 319, 309));
-    //   (points.length).should.equal(3000);
-    //   (Date.now() - startTime).should.be.below(300);
-    // });
   });
 
   describe("should have a findNearestPointTo method", function() {
@@ -171,7 +164,6 @@ describe("Quadtree", function() {
     });
 
     it("If quadtree contains only 1 point, (0, 0), finds that point, with a query of (0, 0).", function() {
-      console.log('here');
       quadtree.insert(0, 0);
       var point = quadtree.findNearestPointTo(0, 0);
       expectPoint(point, 0, 0);
@@ -202,7 +194,7 @@ describe("Quadtree", function() {
       quadtree.insert(5, 0);
       quadtree.insert(0, 5);
       quadtree.insert(5, 5);
-      var point = quadtree.findNearestPointTo(3, 2);
+      var point = quadtree.findNearestPointTo(new Point(3, 2));
       expectPoint(point, 5, 0);
     });
 
@@ -227,7 +219,115 @@ describe("Quadtree", function() {
       (Date.now() - startTime).should.be.below(1000);
     });
   });
+  describe("should have a Box helper class", function() {
+    beforeEach(function() {
+      box = new Box(-20, -20, 20, 20);
+    })
+    it("stores a box class on quadtree instantion", function() {
+      (quadtree.box).should.be.an.instanceof(Box);
+      (function(){new Box(10, 0, 0, 10)}).should.throw();
+      (function(){new Box(0, 10, 10, 0)}).should.throw();
+    });
+    it("has a contains method", function() {
+      var point1 = new Point(0, 0);
+      var point2 = new Point(10, -10);
+      var point3 = new Point(-30, 10);
+      var point4 = new Point(10, 30);
+      var point5 = new Point(20, 20);
+      (box.contains(point1)).should.be.true;
+      (box.contains(point2)).should.be.true;
+      (box.contains(point3)).should.be.false;
+      (box.contains(point4)).should.be.false;
+      (box.contains(point5)).should.be.true;
+      (function(){box.contains(0, 0)}).should.throw();
+    });
+    it("has an overlaps method", function() {
+      var box1 = new Box(0, 0, 10, 10);
+      var box2 = new Box(-100, -100, 10, 10);
+      var box3 = new Box(-40, -40, -30, -30);
+      var box4 = new Box(25, 0, 40, 20);
+      var box5 = new Box(20, 20, 40, 40);
+      (box.overlaps(box1)).should.be.true;
+      (box.overlaps(box2)).should.be.true;
+      (box.overlaps(box3)).should.be.false;
+      (box.overlaps(box4)).should.be.false;
+      (box.overlaps(box5)).should.be.true;
+      (function(){box.overlaps(0, 0, 10, 10)}).should.throw();
+    });
+    it("has a getQuadrant method", function() {
+      expectBox(box.getQuadrant('NE'), 0, 0, 20, 20);
+      expectBox(box.getQuadrant('NW'), -20, 0, 0, 20);
+      expectBox(box.getQuadrant('SW'), -20, -20, 0, 0);
+      expectBox(box.getQuadrant('SE'), 0, -20, 20, 0);
+      (function(){box.getQuadrant('NA')}).should.throw();
+    });
+    it("has shrink and expand methods", function() {
+      box.shrink();
+      expectBox(box, -10, -10, 10, 10);
+      box.shrink();
+      expectBox(box, -5, -5, 5, 5);
+      box.expand();
+      expectBox(box, -10, -10, 10, 10);
+      box.expand();
+      box.expand();
+      expectBox(box, -40, -40, 40, 40);
+    });
+    it("has a findQuadrantForPoint method", function() {
+      var point1 = new Point(1, 10);
+      var point2 = new Point(-13, 5);
+      var point3 = new Point(-3, -20);
+      var point4 = new Point(20, -20);
+      var point5 = new Point(30, 30);
+      (box.findQuadrantForPoint(point1)).should.equal('NE');
+      (box.findQuadrantForPoint(point2)).should.equal('NW');
+      (box.findQuadrantForPoint(point3)).should.equal('SW');
+      (box.findQuadrantForPoint(point4)).should.equal('SE');
+      (function(){box.findQuadrantForPoint(10, 10)}).should.throw();
+      (function(){box.findQuadrantForPoint(point5)}).should.throw();
+    });
+  });
+  describe("should have a Point helper class", function() {
+    beforeEach(function() {
+      point = new Point(10, 10);
+    })
+    it("stores a point class on quadtree insertion", function() {
+      quadtree.insert(new Point(0, 0));
+      (quadtree.point).should.be.an.instanceof(Point);
+    });
+    it("has an isIn method", function() {
+      var box1 = new Box(0, 0, 10, 10);
+      var box2 = new Box(-100, -100, 100, 100);
+      var box3 = new Box(-40, -40, -30, -30);
+      var box4 = new Box(25, 0, 40, 20);
+      (point.isIn(box1)).should.be.true;
+      (point.isIn(box2)).should.be.true;
+      (point.isIn(box3)).should.be.false;
+      (point.isIn(box4)).should.be.false;
+      (function(){point.isIn(-20, -20, 20, 20)}).should.throw();
+    });
+    it("has a distanceTo method", function() {
+      var point1 = new Point(10, 10);
+      var point2 = new Point(10, -10);
+      var point3 = new Point(13, 14);
+      (point.distanceTo(point1)).should.equal(0);
+      (point.distanceTo(point2)).should.equal(20);
+      (point.distanceTo(point3)).should.equal(5);
+      (function(){point.distanceTo(20, 20)}).should.throw();
+    });
+  });
 });
+
+var expectBox = function(actual, expected) {
+  if (typeof expected === "number") {
+    expected = { minX: arguments[1], minY: arguments[2], maxX: arguments[3], maxY: arguments[4] };
+  }
+  (actual).should.be.an.instanceof(Box);
+  (Object.keys(actual)).should.have.length(6);
+  (actual.minX).should.equal(expected.minX);
+  (actual.minY).should.equal(expected.minY);
+  (actual.maxX).should.equal(expected.maxX);
+  (actual.maxY).should.equal(expected.maxY);
+};
 
 var expectPoints = function(actual, expected) {
   (actual).should.have.length(expected.length);
@@ -253,8 +353,7 @@ var expectPoint = function(actual, expected) {
   if (typeof expected === "number") {
     expected = { x: arguments[1], y: arguments[2] };
   }
-  // can't do this any more :(
-  // (actual).should.be.an.instanceof(Point);
+  (actual).should.be.an.instanceof(Point);
   (Object.keys(actual)).should.have.length(2);
   (actual.x).should.equal(expected.x);
   (actual.y).should.equal(expected.y);
