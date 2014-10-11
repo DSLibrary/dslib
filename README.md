@@ -50,7 +50,7 @@ set.contains(item) // returns a boolean if item is in a set
 set.has(item) // returns a boolean if item is in set, same as contains
 set.clear() // empties the set
 set.size() // returns the number of items in the set
-Set.fromArray(array) // creates a new set from an array.
+set.fromArray(array) // creates a new set from an array.
 set.toArray() // creates an array out of a set
 set.copy() // creates a new copy of the set
 set.union(args) // creates a new set from an existing set adding existing args from set
